@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Case Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+  <style>
+
+
+
+body {
+  padding-top: 50px; /* same height as your navbar */
+}
+  .responsive-shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15); /* shadow-lg exempel */
+  }
+
+    .hero-img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .gradient-bg {
+  background: linear-gradient(
+    180deg, 
+    #ffffff 0%,   /* Soft pink */
+    #ffffff 50%,  /* Light aqua */
+    #d9d9d9 100%  /* Warm cream */
+  );
+
+
+}
+
+/* Inaktiva indikatorer */
+#carouselTablet  .carousel-indicators li {
+  background-color: gray;  /* valfri färg */
+
+  opacity: 0.7; /* valfri */
+}
+
+#carouselExampleIndicators .carousel-indicators li {
+  background-color: gray;  /* valfri färg */
+
+  opacity: 0.7; /* valfri */
+}
+
+#carouselMobile .carousel-indicators li {
+  background-color: gray;  /* valfri färg */
+
+  opacity: 0.7; /* valfri */
+}
+
+#carouselExampleIndicators li.active{
+    opacity: 1;
+}
+
+
+
+/* Aktiv indikator */
+#carouselTablet .carousel-indicators li.active {
+  opacity: 1;
+}
+
+#carouselExampleIndicators .carousel-indicators li.active{
+    opacity: 1;
+}
+
+
+@media (max-width:768px){
+
+.responsive-shadow {
+  box-shadow: none; /* små skärmar */
+}
+
+.media-container {
+  min-height: 100vh;
+    display: flex;
+  justify-content: center; /* vertikal centrering */
+  align-items: center; /* horisontell centrering */
+  flex-direction: column; /* stapla vertikalt på små skärmar */
+}
+
+
+}
+
+
+
+
+
+@media (min-width: 768px) and (max-width: 1200px) {
+.shrink{
+   flex-shrink: 0
+}
+
+
+
+
+}
+
+
+
+
+  </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+    <!-- Navbar Start -->
+    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5 mb-5">
+        <a href="index.html" class="navbar-brand ml-lg-3">
+            <h1 class="m-0 display-5"><span class="text-primary">Port</span>Folio</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
+            <div class="navbar-nav m-auto py-0">
+             <a href="index.html#portfolio" class="nav-item nav-link active">Projects</a>
+
+                <a href="#header" class="nav-item nav-link active">Header</a>
+                <a href="#concept" class="nav-item nav-link">Concept</a>
+                <a href="#myRole" class="nav-item nav-link">My Role</a>
+                <a href="#results" class="nav-item nav-link">Results</a>
+             <!----   <a href="#service" class="nav-item nav-link">Service</a>
+                <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
+                <a href="#testimonial" class="nav-item nav-link">Review</a>
+                <a href="#blog" class="nav-item nav-link">Blog</a> -->
+            
+            </div>
+          <a href="index.html#contact" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
+        </div>
+    </nav>
+
+  <!-- HERO SECTION -->
+
+  <section class="container  pt-5 " id="header">
+  <div class="d-flex flex-column align-items-start">  
+  <div class="d-flex align-items-center justify-content-center mb-3 ">
+   <h1 class="display-2 text-uppercase text-white opacity-50 " style="-webkit-text-stroke: 2px  #c6c9cb;;">    Webbshop<br class="d-md-none"> design</h1>
+
+  <!-- <h1 class="position-absolute text-uppercase text-secondary" style="font-size:2em ;">Systemvetardagen</h1>-->
+</div>
+
+  <div class="d-flex flex-column flex-md-row  justify-content-center ">
+        <div class="col-md-5 ">
+        <p class="lead"> In this group assignment, the task was to  conduct a target audience analysis for a webshop. The goal was to move beyond “generic” or superficial demographic data (such as age, geographic location, etc.) and instead deliver insights into users’ needs, motivations, and pain points, which later was used  in the individual assignment to develop a design that addresses these problems. 
+        We decided that our webshop will be selling luxury leather gloves. 
+        </p>
+        <p><strong>Role:</strong> UX/UI-designer </p>
+        <p><strong>Tools:</strong> Figma</p>
+         <p><strong>Link to project:</strong> <a href="https://www.figma.com/design/ZJSSVpA3Hxpk1L0zndGprU/Webbshop?node-id=75-26&p=f&t=sTAaxrqpOzokv9T1-0" > click here!</a> 
+        </p> 
+        
+        </div>
+           <div class="col-md-7"> 
+        <img src="css/mockups/SkinsagaStart.png" alt="Project overview" class="hero-img" >
+       </div> 
+
+
+  </div>
+</div>
+  </section>
+
+
+  <!-- OVERVIEW -->
+  <section class="bg-light" id="concept">
+    <div class="container">
+     <h1 class="text-uppercase text-primary mb-4  fw-bold border-bottom pb-2">Target audience analysis</h1>
+         <p class="lead  mb-3">
+        The end goal with the task was to conduct a target audience analysis that would serve as a base for a webshop selling exclusive leather gloves. The target audience analysis 
+        was performed by a group of four members , while the design was individual. 
+        </p>
+         <h3 class="text-uppercase text-secondary mb-2"> Methods</h3>
+        In order to extract the goals, needs and pain points of our potential target analysis, we performed semi-structured interviews as well as online surveys. 
+        The participants were  asked to answear questions regarding what features they considered most important in a webshop as well as personal information such as age, gender and income. 
+        <br>
+        <br>
+
+        <h5 class="text-uppercase text-secondary mb-2"> Interview </h5>
+        Here are some examples of questions that were asked during the interviews:
+        <li>How often do you buy clothes or accessories online?</li>
+      <li>What is important to you when choosing an online store to potentially make a purchase from?
+      (e.g. a Swedish company, the company’s values, its reputation, shipping and return policies)</li>
+      <li>When you are on an online store to make a specific purchase, what makes you complete the purchase?</li>
+      <li>What could make you abandon the purchase?
+          (e.g. delivery time, price, payment options, lack of information)</li>
+      <li>How much product information feels relevant to you?
+          For example: images, size, material, 3D views, care instructions? Or would too much information feel overwhelming? What would you like to see?</li>
+      <li>Which parts of the purchasing process feel time-consuming or unnecessary to you?
+        Have you ever not completed a purchase because of this?</li>
+      
+
+      <br>
+      <h5 class="text-uppercase text-secondary "> Survey  </h5 >
+      A combination of multiple and single choice questions. <a href="https://forms.gle/eK76KTmxMPVBdrdHA"> Link to survey results</a>
+
+      <br>
+      <br>
+     <!--- <img src="css/img/guidelines-systemvetardagen.png" alt="azeeaimg" class="w-100 h-100 shadow-lg" style="object-fit: cover;  "> --> 
+
+        <h3 class="text-uppercase text-secondary mb-2"> Data analysis</h3>
+        <p> In order to extract goals, needs and pain points and identify target groups from the data, we used AI. The AI tool analysed  data from the interviews and surveys and identified 
+        a number of patterns and trends .    </p>
+   
+          <h5 class="text-uppercase text-secondary mb-2"> Security and Credibility </h5>
+          <p>The AI-generated analysis revealed several trends and patterns in the data. For example, security and credibility were considered crucial, influenced by a website design and visual identity that are perceived as professional, the availability of well-known payment options, and clear information about the company as well as access to customer support.</p>
+         <h5 class="text-uppercase text-secondary mb-2"> Simplicity in the Purchasing Process </h5>
+          <p>All respondents reacted negatively to time-consuming processes, where common points of friction were identified as slow loading times, too many steps to reach checkout, and excessive information on the homepage.</p>
+          <h5 class="text-uppercase text-secondary mb-2"> Relevant Product Information </h5>
+          <p>The importance of relevant product information was emphasized as essential for making a purchasing decision. At the same time, too much information can feel overwhelming, and the ability to choose how much information is displayed was considered important.</p>
+    
+    </div>
+  </section>
+
+  <section class="bg-light" id="persona">
+  <div class="container" >
+   <div class="text-left ">
+    <h1 class="text-uppercase text-primary  fw-bold border-bottom pb-2">Persona</h1>
+      <p class="lead mx-auto" >
+Based on the compiled data, primarily from the survey results, we created two personas: our primary persona, Gunilla Nyström, and our secondary persona, Anders Andersson. These personas represent our target audience.
+      </p>
+    </div>
+
+<div class="mt-2 mb-2">
+<h3 class="text-uppercase text-secondary mb-1"> Gunilla Nyström (primary persona)</h3>
+  <img src="css/mockups/persona1.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+</div>
+<div class="mt-3">
+<h3 class="text-uppercase text-secondary mb-1"> Anders Andersson (secondary persona)</h3>
+  <img src="css/mockups/persona2.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+</div>
+
+
+  </div>
+  </section>
+
+
+
+<section class="bg-light py-5" id="customerJourney">
+    <div class="container" >
+   <div class="text-left ">
+
+    <h1 class="text-uppercase text-primary  fw-bold border-bottom pb-2">Customer Journey</h1>
+      <p class="lead mx-auto" >
+A customer journey map is a visual representation of a user’s or customer’s experience when interacting with a product, service, or company — from the first point of contact to the post-purchase phase.
+It has five phases: </p>
+
+<li>Awareness: The customer first discovers the brand through ads, social media, or word-of-mouth.</li>
+<li>Consideration: The customer evaluates the product against competitors, seeking reviews and detailed information.</li>
+<li>Purchase / Decision: The customer commits to a transaction or signs up for a service.</li>
+<li>Retention: Post-purchase interactions, such as onboarding and customer support, aimed at building loyalty.</li>
+<li>Advocacy: Satisfied customers recommend the brand to others, fueling new awareness. </li>
+<br>
+<h3 class="text-uppercase text-secondary mb-3"> Customer journeys - Primary person</h3>
+
+<div class="pb-3">
+<h5 class="text-uppercase text-secondary mb-2"> Gunilla goes shopping for clothes  </h5>
+  <img src="css/mockups/customer.png" alt="customerJourney" class="w-100 h-100" style="object-fit: cover;">
+</div>
+
+<div class="pb-2 pt-2">
+<h5 class="text-uppercase text-secondary mb-2"> Gunilla buys a present </h5>
+  <img src="css/mockups/cust2.png" alt="customerJourney" class="w-100 h-100" style="object-fit: cover;">
+</div>
+    
+    </div>
+    </div>
+  </section>
+
+
+<section class="bg-light py-5" id="myRole">
+    <div class="container" >
+   <div class="text-left ">
+
+    <h1 class="text-uppercase text-primary  fw-bold border-bottom pb-2">My Role</h1>
+      <p class="lead mx-auto" >
+        Designed questions for the interview and survey. Participated in designing  personas and and customer journeys. 
+      The figma-webshop was an individual task that I designed  myself based on the Target audience analysis.
+
+      </p>
+    </div>
+    </div>
+  </section>
+
+    <section class="container " id="results">
+      <div class="text-left mb-5">
+       <h1 class="text-uppercase text-primary  fw-bold border-bottom pb-2">Results - individual Task</h1>
+    <!----  <h3 class="mt-3">Coding</h3> -->
+      <p class="lead mx-auto">
+        Three Figma prototypes — for desktop, tablet and phone. Based on the Target audience analysis. Designed by me. In the sections below a few selected frames are 
+        presented. 
+      </p>
+
+
+    </div>
+
+   <div class="text-left mb-1">
+    <h3 class="text-uppercase text-secondary mb-1"> Desktop</h3>
+    <a target="_blank" href="https://www.figma.com/proto/ZJSSVpA3Hxpk1L0zndGprU/Webbshop?node-id=75-27&t=GMYb4lQPEWrfyfnL-1&scaling=min-zoom&content-scaling=fixed&page-id=75%3A26&starting-point-node-id=75%3A27&show-proto-sidebar=1">Click to try out the full figma-prototype</a>
+   </div>
+
+
+  <!-- carousel big screens  -->
+
+<div id="carouselExampleIndicators" class="carousel slide mb-5" data-ride="carousel">
+  <ol class="carousel-indicators mb-4">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+     <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+  <!----- <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>-->
+  </ol>
+  <div class="carousel-inner responsive-shadow">
+    <div class="carousel-item active"> <!--start -->
+
+<div class="container my-4">
+  <div class="d-flex flex-column flex-lg-row  justify-content-center align-items-center    rounded ">
+
+        
+      <div class="ratio ratio-16x9" style=" border-radius: 50px; overflow: hidden;">
+        <img src="css/mockups/headerLaptop.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+      </div>
+  </div>
+</div>
+
+</div> <!----  slut -->
+    <div class="carousel-item"> <!--- start -->
+
+<div class="container my-4">
+  <div class="d-flex flex-column flex-lg-row  justify-content-center align-items-center    rounded ">
+
+      <div class="ratio ratio-16x9" style=" border-radius: 50px; overflow: hidden;">
+        <img src="css/mockups/skinsaga/laptop/shopLaptop.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+      </div>
+  </div>
+</div>
+<!---->
+      
+    </div><!-- slut -->
+
+
+<div class="carousel-item"><!--start -->
+<div class="container my-4">
+  <div class="d-flex flex-column flex-lg-row  justify-content-center align-items-center   rounded ">
+
+      
+      <div class="ratio ratio-16x9" style=" border-radius: 50px; overflow: hidden;">
+        <img src="css/mockups/skinsaga/laptop/productLaptop.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+      </div>
+  </div>
+</div>
+
+    </div> <!--slut -->
+
+
+        <div class="carousel-item"><!--start -->
+
+<div class="container my-4">
+  <div class="d-flex flex-column flex-lg-row text-center justify-content-center align-items-center   rounded">
+      <div class="ratio ratio-16x9" style=" border-radius: 50px; overflow: hidden;">
+        <img src="css/mockups/skinsaga/laptop/basketDesktop.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+      </div>
+  </div>
+</div> 
+</div> <!--slut -->
+
+  
+  <div class="carousel-item"><!--start -->
+          <div class="container my-4">
+  <div class="d-flex flex-column flex-lg-row  justify-content-center align-items-center   rounded ">
+      <div class="ratio ratio-16x9" style=" border-radius: 50px; overflow: hidden;">
+        <img src="css/mockups/skinsaga/laptop/orderLaptop.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+      </div>
+  </div>
+</div>
+
+    </div> <!--slut -->
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+
+
+
+<!--Tablet-->
+<section >
+   <div class=" text-mb-left  mb-md-2">
+    <h3 class=" text-secondary mb-1"> Tablet</h3>
+    <a target="_blank" href="https://www.figma.com/proto/ZJSSVpA3Hxpk1L0zndGprU/Webbshop?node-id=155-832&t=90LqxNROEayMEkUl-1&scaling=min-zoom&content-scaling=fixed&page-id=75%3A26&starting-point-node-id=174%3A1434&show-proto-sidebar=1">Click to try out the full figma-prototype</a>
+   </div>
+<div id="carouselTablet" class="carousel slide mb-5" data-ride="carousel">
+  <ol class="carousel-indicators mb-4 mt-3  ">
+    <li data-target="#carouselTablet" data-slide-to="0" class="active"></li>
+  <li data-target="#carouselTablet" data-slide-to="1"></li>
+    <li data-target="#carouselTablet" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner responsive-shadow">
+    <div class="carousel-item active"> <!--start -->
+<div class="container d-flex flex-column flex-md-row   media-container p-md-5 ">
+
+<div class="ratio ratio-16x9 p-md-3 flex-fill">
+
+        <img src="css/mockups/skinsaga/tablet/landingTablet.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+      </div>
+<div class="ratio ratio-16x9 p-md-3 flex-fill">
+        <img src="css/mockups/skinsaga/tablet/shopTablet.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+        </div>
+      <!--</div> -->
+    </div>
+</div> <!----  slut -->
+
+  <div class="carousel-item"> <!--- start -->
+    <div class="container d-flex flex-column flex-md-row   media-container p-md-5 ">
+
+<div class="ratio ratio-16x9 p-md-3 flex-fill">
+
+        <img src="css/mockups/skinsaga/tablet/cardTablet.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+      </div>
+
+<div class="ratio ratio-16x9 p-md-3 flex-fill">
+        <img src="css/mockups/skinsaga/tablet/basket.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+        </div>
+     
+    </div>
+  </div>
+  <div class="carousel-item"><!--start -->
+        <div class="container d-flex flex-column flex-md-row media-container p-md-5 ">
+
+<div class="ratio ratio-16x9 p-md-3 flex-fill">
+
+        <img src="css/mockups/skinsaga/tablet/contacts.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+      </div>
+
+<div class="ratio ratio-16x9 p-md-3 flex-fill">
+        <img src="css/mockups/skinsaga/tablet/thank you.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+        </div>
+     
+    </div>
+
+  <!-- <div class="container d-flex flex-column flex-md-row gradient-bg shadow-lg rounded media-container p-5 ">
+   <div class="ratio ratio-16x9 flex-shrink-1 p-3" style="width: 50vw; overflow: hidden;">
+      <img src="css/mockups/skinsaga/tablet/contacts.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+      </div>
+   <div class="ratio ratio-16x9 flex-shrink-1 p-3" style="width: 50vw; overflow: hidden;">
+    <img src="css/mockups/skinsaga/tablet/thank you.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+   </div>
+  </div> -->
+</div> <!--slut -->
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!---- mobile karusell -->
+<section class=" py-3">
+   <div class="text-left">
+    <h3 class="text-uppercase text-secondary mb-1"> Phone</h3>
+    <a target="_blank" href="https://www.figma.com/proto/ZJSSVpA3Hxpk1L0zndGprU/Webbshop?node-id=196-2612&t=9BmoUoqdbfKSb8yy-1&scaling=min-zoom&content-scaling=fixed&page-id=75%3A26&starting-point-node-id=75%3A27&show-proto-sidebar=1">Click to try out the full figma-prototype</a>
+   </div>
+
+<div id="carouselMobile" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators mb-4 mt-4">
+    <li data-target="#carouselMobile" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselMobile" data-slide-to="1"></li>
+    <li data-target="#carouselMobile" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner responsive-shadow">
+    <div class="carousel-item active"> <!--start -->
+
+  <div class="container my-4 d-flex flex-column flex-md-row  media-container p-2 gap-4 align-items-center justify-content-center ">
+   <div class="ratio ratio-16x9 flex-shrink-1 p-3" style="max-width: 300px; overflow: hidden;">
+      <img src="css/mockups/skinsaga/phone/landing.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+      </div>
+   <div class="ratio ratio-16x9 flex-shrink-1 p-3" style="max-width: 300px; overflow: hidden;">
+    <img src="css/mockups/skinsaga/phone/discover.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+   </div>
+    <div class="ratio ratio-16x9 flex-shrink-1 p-3" style="max-width: 300px; overflow: hidden;">
+    <img src="css/mockups/skinsaga/phone/shopcard.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+   </div>
+  </div> 
+</div> <!----  slut -->
+
+
+  <div class="carousel-item"><!--start -->
+
+  <div class="container my-4 d-flex flex-column flex-md-row media-container p-2 gap-4 align-items-center justify-content-center ">
+   <div class="ratio ratio-16x9 flex-shrink-1 p-3" style="max-width: 300px; overflow: hidden;">
+      <img src="css/mockups/skinsaga/phone/shop.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+      </div>
+   <div class="ratio ratio-16x9 flex-shrink-1 p-3" style="max-width: 300px; overflow: hidden;">
+    <img src="css/mockups/skinsaga/phone/card.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+   </div>
+    <div class="ratio ratio-16x9 flex-shrink-1 p-3" style="max-width: 300px; overflow: hidden;">
+    <img src="css/mockups/skinsaga/phone/card2.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+   </div>
+  </div> 
+</div> <!--slut -->
+
+
+  <div class="carousel-item"><!--start -->
+
+  <div class="container my-4 d-flex flex-column flex-md-row  media-container p-2 gap-4 align-items-center justify-content-center ">
+   <div class="ratio ratio-16x9 flex-shrink-1 p-3" style="max-width: 300px; overflow: hidden;">
+      <img src="css/mockups/skinsaga/phone/varukorg.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+      </div>
+   <div class="ratio ratio-16x9 flex-shrink-1 p-3" style="max-width: 300px; overflow: hidden;">
+    <img src="css/mockups/skinsaga/phone/contact-3.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+   </div>
+    <div class="ratio ratio-16x9 flex-shrink-1 p-3" style="max-width: 300px; overflow: hidden;">
+    <img src="css/mockups/skinsaga/phone/tack-2.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
+   </div>
+  </div> 
+</div> <!--slut -->
+
+
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+    </section>
+</body>
+
+
+<!-- jQuery, Popper.js och Bootstrap 4 JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="text-center py-4 mt-5 border-top">
+    <small>© 2025 Andrea Vilselius</small>
+
+
+
+
+
+
+
+
+
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "freelancer-portfolio-template",
+			"path": "."
+		},
+		{
+			"name": "mockups",
+			"path": "../../Desktop/mockups"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "freelancer-portfolio-template"
+	}
+}
