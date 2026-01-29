@@ -508,6 +508,8 @@
                         <div id="success"></div>
                       
                         <form action="https://formspree.io/f/xzdgrlnk" method="POST" id="contactForm" novalidate="novalidate">
+                               <input type="hidden" name="_subject" value="New message from portfolio">
+                                <input type="hidden" name="_captcha" value="false">
                             <div class="form-row">
                                 <div class="control-group col-sm-6">
                                     <input type="text" name="name" class="form-control p-4" id="name" placeholder="Your Name"
@@ -517,7 +519,7 @@
                                 <div class="control-group col-sm-6">
                                    <input type="email" name="email" class="form-control p-4" id="email" placeholder="Your Email"
                                  required="required" data-validation-required-message="Please enter your email" 
-                                 name="_replyto" />
+                                  />
 
                                     <p class="help-block text-danger"></p>
                                 </div>
