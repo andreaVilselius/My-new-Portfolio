@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Case Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+  <style>
+
+body {
+  padding-top: 50px; /* same height as your navbar */
+}
+
+
+    .hero-img {
+      width: 100%;
+
+      object-fit: cover;
+    }
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .gradient-bg {
+  background: linear-gradient(
+    180deg, 
+    #ffffff 0%,   /* Soft pink */
+    #ffffff 50%,  /* Light aqua */
+    #d9d9d9 100%  /* Warm cream */
+  );
+
+
+
+
+
+}
+
+
+
+@media (max-width:768px){
+
+.lead{
+  font-size: 1rem;
+}
+
+.media-container {
+  min-height: 100vh;
+    display: flex;
+  justify-content: center; /* vertikal centrering */
+  align-items: center; /* horisontell centrering */
+  flex-direction: column; /* stapla vertikalt på små skärmar */
+}
+
+
+}
+
+
+
+
+@media (min-width: 768px) and (max-width: 1200px) {
+.shrink{
+   flex-shrink: 0
+}
+
+
+
+
+}
+
+
+
+
+  </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+    <!-- Navbar Start -->
+    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5 mb-5">
+        <a href="index.html" class="navbar-brand ml-lg-3">
+            <h1 class="m-0 display-5"><span class="text-primary">Port</span>Folio</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
+            <div class="navbar-nav m-auto py-0">
+             <a href="index.html#portfolio" class="nav-item nav-link active">Projects</a>
+
+                <a href="#header" class="nav-item nav-link active">Header</a>
+                <a href="#concept" class="nav-item nav-link">Concept</a>
+         
+             <!----   <a href="#service" class="nav-item nav-link">Service</a>
+                <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
+                <a href="#testimonial" class="nav-item nav-link">Review</a>
+                <a href="#blog" class="nav-item nav-link">Blog</a> -->
+            
+            </div>
+          <a href="index.html#contact" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
+        </div>
+    </nav>
+
+  <!-- HERO SECTION -->
+
+  <section class="container  pt-5 pb-3 " id="header">
+ <!---- <div class="d-flex flex-column align-items-start">  
+  <div class="d-flex align-items-center justify-content-center mb-3 ">
+   <h1 class="display-2 text-uppercase text-white opacity-50 " style="-webkit-text-stroke: 2px  #c6c9cb;;">   The Crud-API</h1> --> 
+
+ <!-- -- <h1 class=" text-uppercase text-secondary" style="font-size:2em ;">The Crud-API</h1> --> 
+</div>
+
+  <div class="d-flex flex-column flex-md-row  justify-content-center align-items-center ">
+        <div class="col-md-5 ">
+              <h1 class="text-uppercase text-primary mb-4 fw-bold border-bottom pb-2">The Crud-API</h1>
+        <p class="lead"> In this backend-heavy individual project, the task was to create an API 
+            which provides CRUD-operations for a webshop.
+        </p>
+        <p><strong>Role:</strong> Fullstack developer </p>
+        <p><strong>Tools:</strong> MongoDB, express, NodeJS, Typescript, HTML, CSS</p>
+         <p><strong>Check out webbsite:</strong> <a href="https://the-crud-api-frontend.onrender.com/" > click here!</a> 
+        <p><strong> Link to github</strong><a href="https://github.com/andreaVilselius/the-Crud-API/tree/main" > click here!</a>  </p>    
+        </p>      
+        </div>
+           <div class="col-md-7"> 
+        <img src="css/img/crud2.png" alt="Project overview" class="hero-img" >
+       </div> 
+  </div>
+
+</section>
+  
+  <section class="bg-light container  pt-3 " id="concept">
+  <!----  <div class="container d-flex-row d-flex-md-column ">
+   <div class="text-left mb-3 "> --->
+   <h1 class="text-uppercase text-primary mb-4 fw-bold border-bottom pb-2">Concept and Results</h1>
+   <p> The task was to implement CRUD-operations  in a webshop application. The frontend was kept minimal, serving only to demonstrate the backend functionality.
+I used Express to create a router that handles CRUD operations (Create, Read, Update, Delete) on data stored in a MongoDB database.
+ The API was designed with a nested data structure, consisting of products and their corresponding quantities.
+  The router uses URL routes to call controller functions, which in turn uses the mongoose-model from the database to perform CRUD-operations. 
+  <strong> The browser will take a while to update the products on the website (ca 1 min the first time) . </strong>
+
+   </p>
+  <!----
+ <div class="d-flex flex-column flex-md-row justify-content-center align-items-start">
+
+      <div class="col-md-4  mt-md-4 lead">
+       <p class="mb-3 "> I was responsible for developing the following sections:</p>
+       <ul class="ml-md-2">
+       <li>New arrivals</li>
+        <li>Discover</li>
+         <li>Product page</li>
+          <li>The entire shop-page except from sorting section.</li>
+          <li> Some refinements to the shopping basket including counter</li>
+        </ul>
+
+        
+      
+    </div>
+   
+    <div class="col-md-8">
+
+          <img src="css/mockups/skinsagashop.png" alt="Project overview" class="hero-img" >
+    </div>
+    </div>--->
+</section>
+
+  
+  </section>
+
+
+
+</div>
+  
+
+
+</body>
+
+
+<!-- jQuery, Popper.js och Bootstrap 4 JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="text-center py-4 mt-5 border-top">
+    <small>© 2025 Andrea Vilselius</small>
+
+
+
+
+
+
+
+
+
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
