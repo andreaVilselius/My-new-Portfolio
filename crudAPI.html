@@ -1,229 +1,431 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Case Study</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Crud-API – Project Case Study</title>
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/favicon.ico" rel="icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/style.css" rel="stylesheet" />
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <style>
+      :root {
+        --brand: #32d6ba;
+        --brand-dark: #0f9c84;
+        --ink: #1f2a2e;
+        --text: #4a5559;
+        --muted: #7b868a;
+        --line: #e6ecec;
+        --tint: #eefbf8;
+      }
 
+      body {
+        padding-top: 90px;
+      } /* höjden på den fasta menyn */
+      .case {
+        color: var(--text);
+      }
+      .case-crumb a {
+        color: var(--brand-dark);
+        text-decoration: none;
+      }
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+      /* Rubriker */
+      .case-eyebrow,
+      .case-num {
+        font-size: 0.8rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--brand-dark);
+        font-weight: 700;
+      }
+      .case-title {
+        font-size: clamp(2.75rem, 6vw, 4rem);
+        font-weight: 900;
+        line-height: 1.02;
+        color: var(--ink);
+        letter-spacing: -0.02em;
+        margin: 0.5rem 0 1rem;
+      }
+      .case-h2 {
+        font-size: 2.1rem;
+        font-weight: 900;
+        color: var(--ink);
+        line-height: 1.1;
+        margin-top: 0.25rem;
+      }
+      .case-h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .case-lead {
+        font-size: 1.2rem;
+        max-width: 46ch;
+      }
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+      /* Knappar */
+      .case-btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+      }
+      .btn-brand,
+      .btn-brand-outline {
+        border-radius: 999px;
+        padding: 0.65rem 1.5rem;
+        font-weight: 500;
+        text-decoration: none;
+      }
+      .btn-brand {
+        background: var(--brand);
+        color: #06372f;
+      }
+      .btn-brand:hover {
+        background: var(--brand-dark);
+        color: #fff;
+        text-decoration: none;
+      }
+      .btn-brand-outline {
+        border: 1.5px solid var(--brand);
+        color: var(--brand-dark);
+      }
+      .btn-brand-outline:hover {
+        background: var(--tint);
+        color: var(--brand-dark);
+        text-decoration: none;
+      }
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-  <style>
+      /* Bild i tonad ruta */
+      .case-visual {
+        background: var(--tint);
+        border-radius: 24px;
+        padding: clamp(1rem, 3vw, 2rem);
+        position: relative;
+        overflow: hidden;
+      }
+      .case-visual::before,
+      .case-visual::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background: var(--brand);
+        opacity: 0.12;
+      }
+      .case-visual::before {
+        width: 340px;
+        height: 340px;
+        right: -90px;
+        top: -110px;
+      }
+      .case-visual::after {
+        width: 220px;
+        height: 220px;
+        left: -60px;
+        bottom: -80px;
+      }
+      .case-visual img {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        background: #fff;
+      }
 
-body {
-  padding-top: 50px; /* same height as your navbar */
-}
+      /* Faktarad */
+      .case-meta {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 3rem 0;
+      }
+      .case-meta > div {
+        padding: 1.25rem 1.5rem !important;
+      }
+      .case-meta dt {
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 700;
+      }
+      .case-meta dd {
+        color: var(--ink);
+        font-weight: 500;
+        margin: 0.25rem 0 0;
+      }
+      .case-tag {
+        display: inline-block;
+        background: var(--tint);
+        color: var(--brand-dark);
+        font-size: 0.8rem;
+        padding: 0.1rem 0.65rem;
+        border-radius: 999px;
+        font-weight: 500;
+        margin: 0 0.25rem 0.25rem 0;
+      }
+      @media (min-width: 992px) {
+        .case-meta > div + div {
+          border-left: 1px solid var(--line);
+        }
+      }
+      @media (max-width: 991.98px) {
+        .case-meta > div:nth-child(even) {
+          border-left: 1px solid var(--line);
+        }
+        .case-meta > div:nth-child(n + 3) {
+          border-top: 1px solid var(--line);
+        }
+      }
 
+      /* Sektioner */
+      .case-section {
+        padding: 3rem 0;
+      }
+      .case-section p {
+        font-size: 1.1rem;
+        max-width: 64ch;
+      }
 
-    .hero-img {
-      width: 100%;
+      /* Flödet: route → controller → model → database */
+      .flow {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 1.5rem 0;
+      }
+      .flow-step {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        min-width: 140px;
+      }
+      .flow-step small {
+        display: block;
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+      .flow-step strong {
+        color: var(--ink);
+      }
+      .flow-arrow {
+        color: var(--brand);
+        font-weight: 700;
+      }
 
-      object-fit: cover;
-    }
-    .section-title {
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
+      /* Inforuta */
+      .case-note {
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+        background: var(--tint);
+        border: 1px solid #bfeee4;
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        max-width: 64ch;
+        margin-top: 1.5rem;
+      }
+      .case-note i {
+        color: var(--brand-dark);
+        margin-top: 0.2rem;
+      }
+      .case-note p {
+        margin: 0;
+        font-size: 1rem;
+      }
+    </style>
+  </head>
 
-    .gradient-bg {
-  background: linear-gradient(
-    180deg, 
-    #ffffff 0%,   /* Soft pink */
-    #ffffff 50%,  /* Light aqua */
-    #d9d9d9 100%  /* Warm cream */
-  );
-
-
-
-
-
-}
-
-
-
-@media (max-width:768px){
-
-.lead{
-  font-size: 1rem;
-}
-
-.media-container {
-  min-height: 100vh;
-    display: flex;
-  justify-content: center; /* vertikal centrering */
-  align-items: center; /* horisontell centrering */
-  flex-direction: column; /* stapla vertikalt på små skärmar */
-}
-
-
-}
-
-
-
-
-@media (min-width: 768px) and (max-width: 1200px) {
-.shrink{
-   flex-shrink: 0
-}
-
-
-
-
-}
-
-
-
-
-  </style>
-</head>
-
-<body data-spy="scroll" data-target=".navbar" data-offset="51">
-    <!-- Navbar Start -->
-    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5 mb-5">
-        <a href="index.html" class="navbar-brand ml-lg-3">
-            <h1 class="m-0 display-5"><span class="text-primary">Port</span>Folio</h1>
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
-            <div class="navbar-nav m-auto py-0">
-             <a href="index.html#portfolio" class="nav-item nav-link active">Projects</a>
-
-                <a href="#header" class="nav-item nav-link active">Header</a>
-                <a href="#concept" class="nav-item nav-link">Concept</a>
-         
-             <!----   <a href="#service" class="nav-item nav-link">Service</a>
-                <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
-                <a href="#testimonial" class="nav-item nav-link">Review</a>
-                <a href="#blog" class="nav-item nav-link">Blog</a> -->
-            
-            </div>
-          <a href="index.html#contact" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
+  <body data-spy="scroll" data-target=".navbar" data-offset="91">
+    <!-- Navbar -->
+    <nav
+      class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5"
+    >
+      <a href="index.html" class="navbar-brand ml-lg-3">
+        <h1 class="m-0 display-5">
+          <span class="text-primary">Port</span>Folio
+        </h1>
+      </a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
+        <div class="navbar-nav m-auto py-0">
+          <a href="index.html#portfolio" class="nav-item nav-link">Projects</a>
+          <a href="#overview" class="nav-item nav-link active">Overview</a>
+          <a href="#concept" class="nav-item nav-link">Concept</a>
+          <a href="#how-it-works" class="nav-item nav-link">How it works</a>
         </div>
+        <a
+          href="index.html#contact"
+          class="btn btn-outline-primary d-none d-lg-block"
+          >Hire Me</a
+        >
+      </div>
     </nav>
 
-  <!-- HERO SECTION -->
-
-  <section class="container  pt-5 pb-3 " id="header">
- <!---- <div class="d-flex flex-column align-items-start">  
-  <div class="d-flex align-items-center justify-content-center mb-3 ">
-   <h1 class="display-2 text-uppercase text-white opacity-50 " style="-webkit-text-stroke: 2px  #c6c9cb;;">   The Crud-API</h1> --> 
-
- <!-- -- <h1 class=" text-uppercase text-secondary" style="font-size:2em ;">The Crud-API</h1> --> 
-</div>
-
-  <div class="d-flex flex-column flex-md-row  justify-content-center align-items-center ">
-        <div class="col-md-5 ">
-              <h1 class="text-uppercase text-primary mb-4 fw-bold border-bottom pb-2">The Crud-API</h1>
-        <p class="lead"> In this backend-heavy individual project, the task was to create an API 
-            which provides CRUD-operations for a webshop.
+    <main class="case">
+      <div class="container">
+        <p class="case-crumb small mb-4">
+          <a href="index.html#portfolio">← All projects</a> / The Crud-API
         </p>
-        <p><strong>Role:</strong> Fullstack developer </p>
-        <p><strong>Tools:</strong> MongoDB, express, NodeJS, Typescript, HTML, CSS</p>
-         <p><strong>Check out webbsite:</strong> <a href="https://the-crud-api-frontend.onrender.com/" > click here!</a> 
-        <p><strong> Link to github</strong><a href="https://github.com/andreaVilselius/the-Crud-API/tree/main" > click here!</a>  </p>    
-        </p>      
-        </div>
-           <div class="col-md-7"> 
-        <img src="css/img/crud2.png" alt="Project overview" class="hero-img" >
-       </div> 
-  </div>
 
-</section>
-  
-  <section class="bg-light container  pt-3 " id="concept">
-  <!----  <div class="container d-flex-row d-flex-md-column ">
-   <div class="text-left mb-3 "> --->
-   <h1 class="text-uppercase text-primary mb-4 fw-bold border-bottom pb-2">Concept and Results</h1>
-   <p> The task was to implement CRUD-operations  in a webshop application. The frontend was kept minimal, serving only to demonstrate the backend functionality.
-I used Express to create a router that handles CRUD operations (Create, Read, Update, Delete) on data stored in a MongoDB database.
- The API was designed with a nested data structure, consisting of products and their corresponding quantities.
-  The router uses URL routes to call controller functions, which in turn uses the mongoose-model from the database to perform CRUD-operations. 
-  <strong> The browser will take a while to update the products on the website (ca 1 min the first time) . </strong>
+        <!-- HERO -->
+        <section id="overview" class="row align-items-center">
+          <div class="col-lg-5 mb-5 mb-lg-0">
+            <div class="case-eyebrow">Individual project · February 2026</div>
+            <h1 class="case-title">The Crud-API</h1>
+            <p class="case-lead">
+              A backend-heavy project: an API that provides CRUD operations for
+              a webshop, with a minimal frontend to show it in action.
+            </p>
+            <div class="case-btns">
+              <a
+                href="https://the-crud-api-frontend.onrender.com/"
+                class="btn-brand"
+                target="_blank"
+                rel="noopener"
+              >
+                Visit website ↗
+              </a>
+              <a
+                href="https://github.com/andreaVilselius/the-Crud-API/tree/main"
+                class="btn-brand-outline"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fab fa-github mr-1"></i> View on GitHub
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="case-visual">
+              <img
+                src="css/img/crud2.png"
+                alt="The Crud-API webshop frontend"
+              />
+            </div>
+          </div>
+        </section>
 
-   </p>
-  <!----
- <div class="d-flex flex-column flex-md-row justify-content-center align-items-start">
+        <!-- FAKTARAD -->
+        <dl class="case-meta row no-gutters">
+          <div class="col-6 col-lg-3">
+            <dt>Role</dt>
+            <dd>Fullstack developer</dd>
+          </div>
+          <div class="col-6 col-lg-3">
+            <dt>Period</dt>
+            <dd>February 2026</dd>
+          </div>
+          <div class="col-6 col-lg-3">
+            <dt>Type</dt>
+            <dd>Individual project</dd>
+          </div>
+          <div class="col-6 col-lg-3">
+            <dt>Tools</dt>
+            <dd>
+              <span class="case-tag">MongoDB</span>
+              <span class="case-tag">Express</span>
+              <span class="case-tag">Node.js</span>
+              <span class="case-tag">TypeScript</span>
+              <span class="case-tag">HTML/CSS</span>
+            </dd>
+          </div>
+        </dl>
 
-      <div class="col-md-4  mt-md-4 lead">
-       <p class="mb-3 "> I was responsible for developing the following sections:</p>
-       <ul class="ml-md-2">
-       <li>New arrivals</li>
-        <li>Discover</li>
-         <li>Product page</li>
-          <li>The entire shop-page except from sorting section.</li>
-          <li> Some refinements to the shopping basket including counter</li>
-        </ul>
+        <!-- 01 CONCEPT -->
+        <section id="concept" class="case-section row">
+          <div class="col-lg-3 mb-3">
+            <div class="case-num">01</div>
+            <h2 class="case-h2">Concept</h2>
+          </div>
+          <div class="col-lg-9">
+            <h3 class="case-h3 mb-2">The task</h3>
+            <p>
+              The task was to implement CRUD operations (Create, Read, Update,
+              Delete) in a webshop application. The frontend was kept minimal,
+              serving only to demonstrate the backend functionality.
+            </p>
+            <p>
+              The API uses a nested data structure, consisting of products and
+              their corresponding quantities.
+            </p>
+          </div>
+        </section>
 
-        
-      
-    </div>
-   
-    <div class="col-md-8">
+        <!-- 02 HOW IT WORKS -->
+        <section id="how-it-works" class="case-section row">
+          <div class="col-lg-3 mb-3">
+            <div class="case-num">02</div>
+            <h2 class="case-h2">How it works</h2>
+          </div>
+          <div class="col-lg-9">
+            <h3 class="case-h3 mb-2">From request to database</h3>
+            <p>
+              An Express router maps each URL route to a controller function.
+              The controller uses a Mongoose model to read from and write to
+              MongoDB.
+            </p>
 
-          <img src="css/mockups/skinsagashop.png" alt="Project overview" class="hero-img" >
-    </div>
-    </div>--->
-</section>
+            <div class="flow">
+              <div class="flow-step">
+                <small>1. Request</small><strong>Express route</strong>
+              </div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-step">
+                <small>2. Logic</small><strong>Controller</strong>
+              </div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-step">
+                <small>3. Schema</small><strong>Mongoose model</strong>
+              </div>
+              <span class="flow-arrow">→</span>
+              <div class="flow-step">
+                <small>4. Storage</small><strong>MongoDB</strong>
+              </div>
+            </div>
 
-  
-  </section>
+            <div class="case-note">
+              <i class="fas fa-info-circle"></i>
+              <p>
+                <strong>Good to know:</strong> the site is hosted on a free
+                plan, so the first load can take about a minute while the server
+                wakes up.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
 
+    <footer class="text-center py-4 mt-5 border-top">
+      <small>© 2026 Andrea Vilselius</small>
+    </footer>
 
-
-</div>
-  
-
-
-</body>
-
-
-<!-- jQuery, Popper.js och Bootstrap 4 JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-  <footer class="text-center py-4 mt-5 border-top">
-    <small>© 2025 Andrea Vilselius</small>
-
-
-
-
-
-
-
-
-
-
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <!-- jQuery, Popper.js och Bootstrap 4 JS (bara en Bootstrap-version) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
 </html>

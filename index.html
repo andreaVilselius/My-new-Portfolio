@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
+.portfolio-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;      /* samma form på alla bilder, t.ex. 16 / 9 eller 1 / 1 */
+    object-fit: cover;        /* fyller rutan, beskär det som sticker ut */
+    object-position: center;
+}
+
 @media (max-width: 768px) {
 
     .herotitle{
@@ -114,35 +121,34 @@
 
     <!-- About Start -->
     <div class="container-fluid py-5 " id="about">
-        <div class="container border-bottom">
+        <div class="container">
             <div class="position-relative d-flex align-items-center justify-content-center">
                 <h1 class="display-1 text-uppercase text gradient-text">About</h1>
                 <h1 class="position-absolute text-uppercase herotitle">About me</h1>
             </div> 
-            <div class="row align-items-center">
-                <div class="col-lg-5 pb-4 pb-lg-0">
+            <div class="row align-items-center justify-content-center">
+              <!--  <div class="col-lg-5 pb-4 pb-lg-0">
                     <img class="img-fluid rounded w-100" src="css/img/jag.jpeg" alt="">
-                </div>
-                <div class="col-lg-7">
-                    <h3 class="mb-4">UI/UX Designer & Front End Developer</h3>
-                    <p>I hold a degree in Interaction Design from Stockholm University  and have a
+                </div> -->
+                <div class="col-lg-12 ">
+                    <h3 class="mb-4 text-center">UI/UX Designer & Front End Developer</h3>
+                    <!--I hold a degree in Interaction Design from Stockholm University  and have a
                     strong passion for designing and developing visually appealing and user-friendly digital
                     solutions. I have experience across all areas of UX/UI design — from research, user testing,
                     and working with different stages of prototyping in Figma, to translating designs into code
                     using HTML, CSS, JavaScript, SCSS, and Bootstrap.
                     In addition, I have experience in app development, particularly with SwiftUI, as well as in
                     conceptualizing and refining designs to better align with a company’s visual identity.
-                    I am currently studying Front-End Development at Medieinstitutet in Stockholm. 
-                    <div class="row mb-3">
-                        <div class="col-sm-6 py-2"><h6>Name: <span class="text-secondary">Andrea Vilselius</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Birthday: <span class="text-secondary">26 November 1996</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Degree: <span class="text-secondary">Bachelor & Advanced Higher Vocational Diploma</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Experience: <span class="text-secondary">Junior</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Phone: <span class="text-secondary">+46707413342</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Based in: <span class="text-secondary">Stockholm</span></h6></div>
-                        <div class="col-sm-6 py-2"><h6>Email: <span class="text-secondary">andrea.vilselius@gmail.com</span></h6></div>
-                       
-                    </div>
+                    I am currently studying Front-End Development at Medieinstitutet in Stockholm.  -->
+
+                  With a degree in interaction design and ongoing studies in front-end development, I enjoy owning the whole process: testing, evaluating, designing and bringing it all to life in code.
+                  The tech market is going through a shift as AI is becoming more prominent in everyday work. The main question is no longer about how we can do something but what should be done and which 
+                  way is the most optional. 
+                  Im currently doing an internship at Wndy, an AI-driven HR tech startup where I have been learning to utilize AI tools while still using my knowledge in design and frontend developement.
+                  Over the past few years, I have been involved in a number of  startups at different stages of development. I enjoy making impact from start, and it has taught me to work in fast-paced,
+                cross-functional teams, wear many hats and turn ideas into working products.
+                  Fun fact about me: Beyond design and code, I like to channel my creativity through art. Mostly drawings. That is how I recharge and I believe it keeps my eye for composition, color and detail sharp.
+         
                    <!----<a href="#contact" class="btn btn-outline-primary mr-4">Contact me</a>-->
                  <!---   <a href="" class="btn btn-outline-primary">Learn More</a> -->
                 </div>
@@ -184,28 +190,70 @@
                        
                     </div>
                 </div>
+
+
                 <div class="col-lg-6">
                     <h3 class="mb-4">Relevant Expericence</h3>
                     <div class="border-left border-primary pt-2 pl-4 ml-2">
+
+                          <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1">UX/UI-designer and Front End intern </h5>
+                            <p class="mb-2"><strong>Wndy</strong> | <small> Sep 2026 - Mars 2027</small></p>
+                            <p>I am currently doing an internship in Front end development and UX/UI-design at Wndy, an HR tech startup in Stockholm that helps growing companies handle HR. 
+                            The work is quite diverse and I have so far been working on fixing bugs, making the interface more user-friendly, redesigning interfaces and contribute to the developement of Wndy 3.0, an updated version of the current platform. 
+                            I have gained skills in how to utilize AI in design and code and and combining that with my prior expertise,  using tools such as Claude, NextJS and Figma / Figma make. 
+
+                            </p>
+                        </div>
+
+
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
                             <h5 class="font-weight-bold mb-1">UX/UI-designer and IOS-developer </h5>
                             <p class="mb-2"><strong>Azeea</strong> | <small> Sep 2024 - Mars 2025</small></p>
                             <p>Azeea is a real-time social discovery platform that connects people, places, and possibilities as they emerge. Designed and implemented UI screens in Figma and SwiftUI for a mobile event app. Contributed from concept to delivery, working closely with developers and testers and other designers. Focused on intuitive navigation and a clean, modern look. Contributed to shaping the brand’s identity by designing cohesive visual elements, including icons, typography, and color schemes, aligned with the company’s values.</p>
                         </div>
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">UX/UI-designer, graduate project from Stockholm University</h5>
-                            <p class="mb-2"><strong>2Witness</strong> | <small>Sep 2023 - Jan 2024</small></p>
-                            <p>
-                            Created a prototype for a mobile app to report incidents anonymously using Figma. Tasks included gathering and specifying requirements based on brainstorming workshops with the founding team. Built two different prototypes bases on the specified requirements. Conducted iterative user testing and refined prototypes based on feedback. Led the entire design process in Figma with a focus on user trust and clarity.</p>
-                        </div>
-                        <div class="position-relative mb-4">
-                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
-                            <h5 class="font-weight-bold mb-1">Web Designer</h5>
-                            <p class="mb-2"><strong>Systemvetardagen</strong> | <small>Sep 2022 - Mars 2023</small></p>
-                            <p>Designed a mobile application and website in Figma for the annual Systemvetardagen event at Stockholm University. Focused on creating visually appealing and user-friendly interfaces, ensuring a cohesive design across platforms and enhancing the overall digital experience for event attendees.</p>
+
+                     <div id="more-experience" class="d-none">
+                    <div class="position-relative mb-4">
+                    <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                    <h5 class="font-weight-bold mb-1">UX/UI Designer, graduate project from Stockholm University</h5>
+                    <p class="mb-2"><strong>2Witness</strong> | <small>Sep 2023 - Jan 2024</small></p>
+                    <p>Created a prototype for a mobile app to report incidents anonymously using Figma. Tasks included gathering and specifying requirements based on brainstorming workshops with the founding team. Built two different prototypes based on the specified requirements. Conducted iterative user testing and refined prototypes based on feedback. Led the entire design process in Figma with a focus on user trust and clarity.</p>
+                </div>
+                    <div class="position-relative mb-4">
+                        <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                        <h5 class="font-weight-bold mb-1">Web Designer</h5>
+                        <p class="mb-2"><strong>Systemvetardagen</strong> | <small>Sep 2022 - Mar 2023</small></p>
+                        <p>Designed a mobile application and website in Figma for the annual Systemvetardagen event at Stockholm University. Focused on creating visually appealing and user-friendly interfaces, ensuring a cohesive design across platforms and enhancing the overall digital experience for event attendees.</p>
                     </div>
+                    <!-- Lägg fler poster här -->
+                </div>
+                <div class="position-relative mb-4">
+                        <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;" ></i>
+                              <h5 class="font-weight-bold mb-1" id="show-more-btn">Show more
+                                <i class="fas fa-chevron-down ml-1"></i>
+                              </h5>
+                       
+                </div>
+
+             <!---   <button type="button" id="show-more-btn" class="btn btn-link text-primary p-0   " aria-expanded="false" aria-controls="more-experience">
+                    Show more <i class="fas fa-chevron-down ml-1"></i>
+                </button> -->
+
+                <script>
+                    document.getElementById('show-more-btn').addEventListener('click', function () {
+                        const content = document.getElementById('more-experience');
+                        const isHidden = content.classList.toggle('d-none');
+                        this.setAttribute('aria-expanded', !isHidden);
+                        this.innerHTML = isHidden
+                            ? 'Show more <i class="fas fa-chevron-down ml-1"></i> '
+                            : 'Show less <i class="fas fa-chevron-up ml-1"></i>';
+                    });
+                </script>
+       
+
                 </div>
             </div>
         </div>
@@ -393,6 +441,25 @@
                 </div>
             </div>
             <div class="row portfolio-container">
+
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first second">
+                    <div class="position-relative  mb-2">
+                        <img class="img-fluid rounded w-100 shadow-lg"  src="css/img/wndy/logo_green_white_bg.png" alt="wndy">
+                        <div class="portfolio-btn bg-light shadow-lg d-flex align-items-center justify-content-center">
+                            <a href="wndy.html" > 
+                        <h4  style="text-decoration: none;  color: inherit; ">Wndy</h4>
+                        <small><p style="text-decoration: none; margin: 2px;"><strong>Role:</strong>Front end developer and UX/UI-designer</p></small>
+                        <small><p style="text-decoration: none;margin: 2px;"><strong>Tools:</strong> </p></small>
+                     <small> <p style="text-decoration: none;margin: 2px;"><strong>Period:</strong>September 2026 - Mars 2027</p></small>
+                    </a>
+                        </div>
+                    </div>
+                </div>
+
+                  
+
+
+
             <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
                     <div class="position-relative  mb-2">
                         <img class="img-fluid rounded w-100 shadow-lg"  src="css/img/crud.png" alt="the Crud-API">
@@ -400,7 +467,7 @@
                             <a href="crudAPI.html" > 
                         <h4  style="text-decoration: none;  color: inherit; ">The Crud-API</h4>
                         <small><p style="text-decoration: none; margin: 2px;"><strong>Role:</strong>Fullstack Developer</p></small>
-                        <small><p style="text-decoration: none;margin: 2px;"><strong>Tools:</strong> NodeJS, express, mongoose, typescript </p></small>
+                        <small><p style="text-decoration: none;margin: 2px;"><strong>Tools:</strong> NodeJS, express, mongoDB, typescript </p></small>
                      <small> <p style="text-decoration: none;margin: 2px;"><strong>Period:</strong>February 2026</p></small>
                     </a>
                         </div>
@@ -574,8 +641,12 @@
               <!----  <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>-->
                 <a class="btn btn-light btn-social mr-2" href="mailto:andrea.vilselius@gmail.com"><i class="fa fa-envelope"></i></a>
                 <a class="btn btn-light btn-social mr-2" href="https://www.linkedin.com/in/andrea-vilselius-972ba4103/"><i class="fab fa-linkedin-in"></i></a>
+             
+
     
             </div>
+
+              <p>andrea.vilselius@gmail.com</p>
            
         </div>
     </div>

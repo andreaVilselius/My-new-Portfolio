@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Case Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+  <style>
+
+body {
+  padding-top: 50px; /* same height as your navbar */
+}
+:root {
+  --brand: #32D6BA;
+  --brand-dark: #0F9C84;
+  --ink: #1f2a2e;
+  --text: #4a5559;
+  --muted: #7b868a;
+  --line: #e6ecec;
+  --tint: #eefbf8;
+}
+
+.case { color: var(--text); }
+.case-crumb a { color: var(--brand-dark); text-decoration: none; }
+
+.case-eyebrow {
+  font-size: .8rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--brand-dark); font-weight: 700;
+}
+.case-title {
+  font-size: clamp(2.75rem, 6vw, 4rem); font-weight: 900; line-height: 1.02;
+  color: var(--ink); letter-spacing: -.02em;
+}
+.case-lead { font-size: 1.2rem; max-width: 46ch; }
+
+.btn-brand { background: var(--brand); color: #06372f; border-radius: 999px; padding: .65rem 1.5rem; font-weight: 500; }
+.btn-brand:hover { background: var(--brand-dark); color: #fff; }
+.btn-brand-outline { border: 1.5px solid var(--brand); color: var(--brand-dark); border-radius: 999px; padding: .65rem 1.5rem; font-weight: 500; }
+.btn-brand-outline:hover { background: var(--tint); color: var(--brand-dark); }
+
+.case-visual {
+  background: var(--tint); border-radius: 24px; aspect-ratio: 4 / 3;
+  position: relative; overflow: hidden;
+}
+
+.case-visual-bg {
+  background: var(--tint); border-radius: 24px; 
+  position: relative; overflow: hidden;
+}
+
+
+.case-visual::before, .case-visual::after {
+  content: ""; position: absolute; border-radius: 50%; background: var(--brand); opacity: .12;
+}
+.case-visual::before { width: 340px; height: 340px; right: -90px; top: -110px; }
+.case-visual::after  { width: 220px; height: 220px; left: -60px; bottom: -80px; }
+.case-visual img { width: 58%; position: relative; z-index: 1; }
+
+.case-meta { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.case-meta > div { padding: 1.25rem 1.5rem; border-color: var(--line) !important; }
+.case-meta dt {
+  font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); font-weight: 700;
+}
+.case-meta dd { color: var(--ink); font-weight: 500; margin: .25rem 0 0; }
+.case-tag {
+  display: inline-block; background: var(--tint); color: var(--brand-dark);
+  font-size: .8rem; padding: .1rem .65rem; border-radius: 999px; font-weight: 500;
+  margin: 0 .25rem .25rem 0;
+}
+
+.case-num {
+  font-size: .8rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--brand-dark); font-weight: 700;
+}
+.case-h2 { font-size: 2.1rem; font-weight: 900; color: var(--ink); line-height: 1.1; }
+.case-h3 { font-size: 1.25rem; font-weight: 700; color: var(--ink); }
+.case-section p { font-size: 1.1rem; max-width: 64ch; }
+.case-list { padding-left: 1.1rem; margin: 0; }
+.case-list li { margin-bottom: .25rem; }
+.case-list li::marker { color: var(--brand); }
+.case-visual--wide { aspect-ratio: auto; padding: 1.5rem; }
+.case-visual--wide img.shot { width: 100%; }
+.project-shot {
+  background: var(--tint);
+  border-radius: 24px;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  margin: 0;
+}
+.project-shot img {
+  display: block;
+  width: 100%;
+  height: auto;              /* hela bilden syns, ingen beskärning */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  background: #fff;
+}
+.project-shot figcaption {
+  font-size: .875rem;
+  color: var(--muted);
+  margin-top: .75rem;
+  text-align: center;
+}
+
+.project-points > div {
+  border-top: 2px solid var(--brand);
+  padding-top: 1rem;
+}
+.project-points p, .project-points li { font-size: 1rem; }
+.case-list { padding-left: 1.1rem; margin: 0; }
+.case-list li { margin-bottom: .25rem; }
+.case-list li::marker { color: var(--brand); }
+/* Faktaraden: kantlinjer mellan kolumnerna */
+
+.project-intro p { max-width: 90%; }
+
+
+@media (min-width: 992px) {
+  .case-meta > div + div { border-left: 1px solid; }
+}
+@media (max-width: 991.98px) {
+  .case-meta > div:nth-child(even) { border-left: 1px solid; }
+  .case-meta > div:nth-child(n+3) { border-top: 1px solid; }
+}
+
+
+
+
+  </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+    <!-- Navbar Start -->
+    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5 mb-5">
+        <a href="index.html" class="navbar-brand ml-lg-3">
+            <h1 class="m-0 display-5"><span class="text-primary">Port</span>Folio</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
+            <div class="navbar-nav m-auto py-0">
+             <a href="index.html#portfolio" class="nav-item nav-link active">Projects</a>
+
+                <a href="#header" class="nav-item nav-link active">Header</a>
+                <a href="#concept" class="nav-item nav-link">Concept</a>
+                <a href="#myRole" class="nav-item nav-link">My Role</a>
+                <a href="#results" class="nav-item nav-link">Results</a>
+           
+            
+            </div>
+          <a href="index.html#contact" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
+        </div>
+    </nav>
+
+  <!-- HERO SECTION -->
+<main class="case">
+  <div class="container py-4">
+    <!-- HERO -->
+    <section id="overview" class="row align-items-center g-5 mb-5 mt-5">
+      <div class="col-lg-5">
+        <div class="case-eyebrow">internship · 2026–2027</div>
+        <h1 class="case-title mt-2 mb-3">Wndy</h1>
+        <p class="case-lead">
+         I am currently doing an internship in Front end development and UX/UI-design at Wndy, an HR tech startup in Stockholm that helps growing companies handle HR.
+       
+
+        </p>
+      <!----  <div class="d-flex flex-wrap gap-2 mt-4">
+          <a href="#" class="btn btn-brand" target="_blank" rel="noopener">Besök sajten ↗</a>
+          <a href="#" class="btn btn-brand-outline">Se prototypen</a> 
+        </div> -->
+      </div>
+
+      <div class="col-lg-7">
+        <div class="case-visual d-flex align-items-center justify-content-center">
+          <img src="css/img/wndy/logo_green (1).png" alt="Wndy logotyp">
+        </div>
+      </div>
+    </section>
+
+    <!-- FAKTARAD -->
+    <dl class="case-meta row g-0 mb-5">
+      <div class="col-6 col-lg-3">
+        <dt>Roll</dt>
+        <dd>Front end-utvecklare &amp; UX/UI-designer</dd>
+      </div>
+      <div class="col-6 col-lg-3">
+        <dt>Period</dt>
+        <dd>Sep 2026 – Mar 2027</dd>
+      </div>
+      <div class="col-6 col-lg-3">
+        <dt>Verktyg</dt>
+        <dd>
+          <span class="case-tag">Figma</span>
+          <span class="case-tag">React</span>
+          <span class="case-tag">NextJS</span>
+          <span class="case-tag">Claude</span>
+        </dd>
+      </div>
+      <div class="col-6 col-lg-3">
+        <dt>Team</dt>
+        <dd> 2 developers + me</dd>
+      </div>
+    </dl>
+
+    <div class="case-visual-bg row justify-content-center align-items-center">
+    <!-- 01 CONCEPT -->
+    <section id="concept" class="case-section col g-4 py-5">
+      <div class="col-lg-3">
+        <div class="case-num">01</div>
+        <h2 class="case-h2 mt-1">Concept</h2>
+      </div>
+
+      <div class="col-lg-9">
+      
+        <p>Text om designprocessen …</p>
+      </div>
+    </section>
+
+    <!-- 02 MY ROLE -->
+    <section id="my-role" class="case-section col g-4 py-5">
+      <div class="">
+        <div class="case-num">02</div>
+        <h2 class="case-h2 mt-1">My Role</h2>
+      </div>
+      <div class="col-lg-9">
+      
+        <p>Text …</p>
+      </div>
+    </section>
+
+    <!-- 03 RESULTS -->
+    <section id="results" class="case-section col g-4 py-5">
+      <div class="col-lg-3">
+        <div class="case-num">03</div>
+        <h2 class="case-h2 mt-1">Results</h2>
+      </div>
+      <div class="col-lg-9">
+      
+        <p>The results are being presented below in a chronological order.</p>
+      </div>
+    </section>
+</div>
+
+
+<section id="projects" class="case-section py-5">
+
+  <!-- Sektionsrubrik, samma stil som Concept -->
+
+
+  <article class="project">
+
+    <!-- Intro -->
+<div class="row align-items-end g-4 mb-4">
+<div class="project-intro mb-4">
+      <h2 class="case-h2 mt-1 mb-5 border-bottom">Projects</h2>
+  <div class="case-eyebrow">September · 2026</div>
+  <h3 class="case-h2 mt-2 mb-3">Birthday notifications</h3>
+  <p class="mb-3">
+    My first feature shipped to the Wndy codebase, three weeks into my internship.
+    A small detail that makes sure no employee is left out of birthday reminders.
+  </p>
+  <div>
+    <span class="case-tag">Frontend</span>
+    <span class="case-tag">UX/UI</span>
+    <span class="case-tag">Forms</span>
+  </div>
+</div>
+   
+    </div>
+
+    <!-- Bild i full bredd -->
+    <figure class="project-shot mb-5">
+      <img src="css/img/wndy/birthday-notifications_2.png"
+           alt="Two versions of the employee form: with date of birth and with personal identity number, each showing when the birthday reminder is sent">
+      <figcaption>Left: date of birth only. Right: birthday read from personnummer.</figcaption>
+    </figure>
+
+    <!-- Problem / Solution / Result -->
+    <div class="row g-4 project-points">
+      <div class="col-md-4">
+        <div class="case-num">Problem</div>
+        <p>
+          Adding a personnummer is optional in Wndy. But employees who chose not to
+          share it missed out: their managers never got a reminder before their birthday.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <div class="case-num">Solution</div>
+        <ul class="case-list">
+          <li>If a personnummer is entered, the birthday is read from it automatically.</li>
+          <li>If not, the employee can enter just their date of birth.</li>
+          <li>A hint under the field shows exactly when the reminder will be sent.</li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <div class="case-num">Result</div>
+        <p>
+          Admins and managers linked to the employee now get an email five days
+          before the birthday, whichever option the employee chooses.
+        </p>
+      </div>
+    </div>
+
+  </article>
+</section>
+  </div>
+
+
+  
+
+
+
+
+
+
+
+</main>
+
+
+
+</body>
+
+
+<!-- jQuery, Popper.js och Bootstrap 4 JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="text-center py-4 mt-5 border-top">
+    <small>© 2025 Andrea Vilselius</small>
+
+
+
+
+
+
+
+
+
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
