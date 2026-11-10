@@ -1,427 +1,545 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Case Study</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azeea – Project Case Study</title>
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/favicon.ico" rel="icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/style.css" rel="stylesheet" />
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <style>
+      :root {
+        --brand: #32d6ba;
+        --brand-dark: #0f9c84;
+        --ink: #1f2a2e;
+        --text: #4a5559;
+        --muted: #7b868a;
+        --line: #e6ecec;
+        --tint: #eefbf8;
+      }
 
+      body {
+        padding-top: 90px;
+      } /* höjden på den fasta menyn */
+      .case {
+        color: var(--text);
+      }
+      .case-crumb a {
+        color: var(--brand-dark);
+        text-decoration: none;
+      }
+      .case-section a,
+      .case-lead a {
+        color: var(--brand-dark);
+      }
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+      /* Rubriker */
+      .case-num {
+        font-size: 0.8rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--brand-dark);
+        font-weight: 700;
+      }
+      .case-title {
+        font-size: clamp(2.75rem, 6vw, 4rem);
+        font-weight: 900;
+        line-height: 1.02;
+        color: var(--ink);
+        letter-spacing: -0.02em;
+        margin: 0.5rem 0 1rem;
+      }
+      .case-h2 {
+        font-size: 2.1rem;
+        font-weight: 900;
+        color: var(--ink);
+        line-height: 1.1;
+        margin-top: 0.25rem;
+      }
+      .case-h3 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin: 2.5rem 0 0.5rem;
+      }
+      .case-lead {
+        font-size: 1.2rem;
+      }
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+      /* Bilder: ingen färgad bakgrund, ingen ram */
+      .case-img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-  <style>
-    body {
-  padding-top: 50px; /* same height as your navbar */
-}
-    .hero-img {
-      width: 100%;
-      border-radius: 12px;
-      object-fit: cover;
-    }
-    .section-title {
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
+      /* Faktarad */
+      .case-meta {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 3rem 0;
+      }
+      .case-meta > div {
+        padding: 1.25rem 1.5rem !important;
+      }
+      .case-meta dt {
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 700;
+      }
+      .case-meta dd {
+        color: var(--ink);
+        font-weight: 500;
+        margin: 0.25rem 0 0;
+      }
+      .case-tag {
+        display: inline-block;
+        background: var(--tint);
+        color: var(--brand-dark);
+        font-size: 0.8rem;
+        padding: 0.1rem 0.65rem;
+        border-radius: 999px;
+        font-weight: 500;
+        margin: 0 0.25rem 0.25rem 0;
+      }
+      @media (min-width: 992px) {
+        .case-meta > div + div {
+          border-left: 1px solid var(--line);
+        }
+      }
+      @media (max-width: 991.98px) {
+        .case-meta > div + div {
+          border-top: 1px solid var(--line);
+        }
+      }
 
-    .gradient-bg {
-  background: linear-gradient(
-    180deg, 
-    #ffffff 0%,   /* Soft pink */
-    #ffffff 50%,  /* Light aqua */
-    #d9d9d9 100%  /* Warm cream */
-  );
+      /* Sektioner */
+      .case-section {
+        padding: 3rem 0;
+      }
+      .case-section p {
+        font-size: 1.1rem;
+      }
+      .case-section--tint {
+        background: var(--tint);
+        border-radius: 24px;
+        padding: clamp(1.5rem, 4vw, 3rem);
+        margin: 3rem 0;
+      }
 
+      /* Videor och skärmar med text */
+      .media-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        justify-items: center;
+      }
+      @media (min-width: 768px) {
+        .media-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .media-item {
+        width: 100%;
+        max-width: 300px;
+      }
+      /* .media-item video {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 28px;
+        background: transparent;
+      }*/
+      .media-item h4 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin: 1rem 0 0.25rem;
+      }
+      .media-item p {
+        font-size: 1rem;
+        margin: 0;
+      }
 
-}
-.shrink{
-   flex-shrink: 0
-}
+      /* Karusell i ljusgrön ruta */
+      .device-frame {
+        background: var(--tint);
+        border-radius: 24px;
+        padding: clamp(1.25rem, 3vw, 2.5rem);
+        margin-top: 2rem;
+      }
 
+      /* Pilar på sidorna, prickar under bilden */
+      .carousel-nav {
+        margin-top: 1.25rem;
+      }
+      @media (min-width: 768px) {
+        .case-carousel .carousel-inner {
+          padding: 0 64px;
+        }
+      }
+      .carousel-nav .carousel-control-prev,
+      .carousel-nav .carousel-control-next {
+        position: absolute;
+        top: 0;
+        bottom: 2.5rem;
+        width: 56px;
+        opacity: 1;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .carousel-nav .carousel-control-prev {
+        left: 0;
+      }
+      .carousel-nav .carousel-control-next {
+        right: 0;
+      }
+      .carousel-nav .carousel-control-prev-icon,
+      .carousel-nav .carousel-control-next-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(31, 42, 46, 0.75);
+        background-size: 45%;
+      }
+      .carousel-nav .carousel-indicators {
+        position: static;
+        margin: 0;
+        justify-content: center;
+      }
+      .carousel-nav .carousel-indicators li {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 0;
+        background: var(--brand);
+        opacity: 0.3;
+        margin: 0 4px;
+      }
+      .carousel-nav .carousel-indicators li.active {
+        opacity: 1;
+      }
+    </style>
+  </head>
 
-
-
-@media (max-width:768px){
-
-
-.text-container{
-  width: 100%;
-}
-
-  .gradient-bg {
-    background: none !important;
-  }
-
-  .shadow-lg {
-    box-shadow: none !important;
-  }
-
-  .rounded {
-    border-radius: 0 !important;
-  }
-
-  .media-container {
-    padding: 0 !important;
-    background: none !important;
-    box-shadow: none !important;
-  }
-
- /* .lead{
-  font-size: 1rem;
-}
-*/
-}
-
-
-@media (min-width: 768px) and (max-width: 1200px) {
-.ratio{
-   flex-shrink: 0
-}
-
-  .media-container {
-    gap: 3.5rem; 
-
-  }
-
-
-
-
-/*
-.text-container h3{
-font-size: 1em;
-}
-.text-container p{
-  font-size: 12px;
-}*/
-
-
-}
-
-
-  </style>
-</head>
-
-<body data-spy="scroll" data-target=".navbar" data-offset="51">
-    <!-- Navbar Start -->
-    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5 mb-5">
-">
-        <a href="index.html" class="navbar-brand ml-lg-3">
-            <h1 class="m-0 display-5"><span class="text-primary">Port</span>Folio</h1>
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
-            <div class="navbar-nav m-auto py-0">
-                <a href="index.html#portfolio" class="nav-item nav-link active">Projects</a>
-                <a href="#header" class="nav-item nav-link active">Header</a>
-                <a href="#concept" class="nav-item nav-link">Concept</a>
-                <a href="#myRole" class="nav-item nav-link">My Role</a>
-                <a href="#results" class="nav-item nav-link">Results</a>
-            </div>
-            <a href="index.html#contact" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
+  <body data-spy="scroll" data-target=".navbar" data-offset="91">
+    <!-- Navbar -->
+    <nav
+      class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5"
+    >
+      <a href="index.html" class="navbar-brand ml-lg-3">
+        <h1 class="m-0 display-5">
+          <span class="text-primary">Port</span>Folio
+        </h1>
+      </a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
+        <div class="navbar-nav m-auto py-0">
+          <a href="index.html#portfolio" class="nav-item nav-link">Projects</a>
+          <a href="#header" class="nav-item nav-link active">Header</a>
+          <a href="#concept" class="nav-item nav-link">Concept</a>
+          <a href="#myRole" class="nav-item nav-link">My Role</a>
+          <a href="#results" class="nav-item nav-link">Results</a>
         </div>
+        <a
+          href="index.html#contact"
+          class="btn btn-outline-primary d-none d-lg-block"
+          >Hire Me</a
+        >
+      </div>
     </nav>
 
-  <!-- HERO SECTION -->
-
-
-
-  <section class="container pt-5">
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <!--<h1 class="display-5 fw-bold">Azeea</h1> -->
-        <div class="position-relative d-flex align-items-center justify-content-center mb-2">
-  <h1 class="display-1 text-uppercase text-white opacity-50" style="-webkit-text-stroke: 1px  #c6c9cb;">Azeea</h1>
-  <h1 class="position-absolute text-uppercase text-primary" >Azeea</h1>
-</div>
-
-        <p class="lead">Azeea is a real-time social discovery platform that connects people, places, andpossibilities as they emerge..</p>
-        <p><strong>Role:</strong> UI-Designer & IOS-developer</p>
-        <p><strong>Tools:</strong> Figma,SwiftUI</p>
-      </div>
-      <div class="col-md-6">
-        <img src="css/mockups/azeeaipad.png" alt="Project overview" class="hero-img mt-5" style="max-width: 500px;">
-      </div>
-    </div>
-  </section>
-
-  <!-- OVERVIEW -->
-  <section class="bg-light py-3" id="concept">
-    <div class="container">
-      <h1 class="text-uppercase text-primary mb-4 fw-bold border-bottom pb-2">Concept</h1>
-       <p class="lead  mb-3">Azeea is aspiring to create a mobile application that works pretty much like Tinder - but for events. My role in the project was to 
-        design examples of the main flow  and frames for when the user swipes right on an event - using Figma & SwiftUI. Once the user has entered an Event they can access the event-page, which could for example 
-        be a art meetup or a consert. The user can also have multiple avatars, representing different interests. Below is a storyboard illustrating the user flow of a typical user.
-       
+    <main class="case">
+      <div class="container">
+        <p class="case-crumb small mb-4">
+          <a href="index.html#portfolio">← All projects</a> / Azeea
         </p>
-         <img src="css/img/storyboard.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
 
+        <!-- HERO -->
+        <section id="header" class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <h1 class="case-title">Azeea</h1>
+            <p class="case-lead">
+              Azeea is a real-time social discovery platform that connects
+              people, places, andpossibilities as they emerge..
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <img
+              class="case-img"
+              src="css/mockups/azeeaipad.png"
+              alt="Project overview"
+            />
+          </div>
+        </section>
+
+        <!-- FAKTARAD -->
+        <dl class="case-meta row no-gutters">
+          <div class="col-lg-4">
+            <dt>Role</dt>
+            <dd>UI-Designer &amp; IOS-developer</dd>
+          </div>
+          <div class="col-lg-4">
+            <dt>Period</dt>
+            <dd>Sep 2024 - March 2025</dd>
+          </div>
+          <div class="col-lg-4">
+            <dt>Tools</dt>
+            <dd>
+              <span class="case-tag">Figma</span>
+              <span class="case-tag">SwiftUI</span>
+            </dd>
+          </div>
+        </dl>
+
+        <!-- 01 CONCEPT -->
+        <section id="concept" class="case-section">
+          <div class="case-num">01</div>
+          <h2 class="case-h2 mb-3">Concept</h2>
+          <p class="case-lead">
+            Azeea is aspiring to create a mobile application that works pretty
+            much like Tinder - but for events. My role in the project was to
+            design examples of the main flow and frames for when the user swipes
+            right on an event - using Figma &amp; SwiftUI. Once the user has
+            entered an Event they can access the event-page, which could for
+            example be a art meetup or a consert. The user can also have
+            multiple avatars, representing different interests. Below is a
+            storyboard illustrating the user flow of a typical user.
+          </p>
+          <img
+            class="case-img mt-4"
+            src="css/img/storyboard.png"
+            alt="Storyboard of the user flow"
+          />
+        </section>
+
+        <!-- 02 MY ROLE -->
+        <section id="myRole" class="case-section case-section--tint">
+          <div class="case-num">02</div>
+          <h2 class="case-h2 mb-3">My Role</h2>
+          <p class="mb-0">
+            Designed and implemented UI screens in Figma and SwiftUI for a
+            mobile event app. Contributed from concept to delivery, working
+            closely with developers and testers and other designers. Focused on
+            intuitive navigation and a clean, modern look. Contributed to
+            shaping the brand’s identity by designing cohesive visual elements,
+            including icons, typography, and color schemes, aligned with the
+            company’s values.
+          </p>
+        </section>
+
+        <!-- 03 RESULTS -->
+        <section id="results" class="case-section">
+          <div class="case-num">03</div>
+          <h2 class="case-h2 mb-3">Results</h2>
+
+          <!-- Coding -->
+          <h3 class="case-h3">Coding</h3>
+          <p class="case-lead">
+            The features shown below illustrate some of the user flows currently
+            implemented in the application. Users can interact with avatars,
+            each with different interests, and the background dynamically
+            changes depending on which avatar is in focus. The videos display
+            the main flows, including event participation by swiping. This
+            project was implemented using Swift and Xcode.
+          </p>
+
+          <div class="media-grid mt-4">
+            <div class="">
+              <div
+                class="ratio ratio-16x9 corners"
+                style="max-width: 300px; overflow: hidden; border-radius: 50px"
+              >
+                <video
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  controls
+                  class="w-100 align-items-center"
+                >
+                  <source src="css/img/AZEEAATOM.mp4" type="video/MP4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <h4>Main flow</h4>
+              <p>How to swipe events</p>
             </div>
-  </section>
+            <div class="">
+              <div
+                class="ratio ratio-16x9 corners"
+                style="max-width: 300px; overflow: hidden; border-radius: 50px"
+              >
+                <video
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  controls
+                  class="w-100 align-items-center"
+                >
+                  <source src="css/img/ATOMVIEW.mp4" type="video/MP4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <h4>Avatars</h4>
+              <p>profile-site for personal avatars.</p>
+            </div>
+          </div>
 
+          <!-- Design -->
+          <h3 class="case-h3">Design</h3>
+          <p class="case-lead">
+            Some examples of potential flows (not yet implemented) that appears
+            when the user swipes right on an event. The user is also able to
+            unlock exclusive content, collect points and take advantage of
+            deals. These frames were created with Figma.
+          </p>
 
- -<section class="bg-light py-3" id="myRole">
-    <div class="container">
-   <div class="text-left mb-3">
-   <h1 class="text-uppercase text-primary mb-4 fw-bold border-bottom pb-2">My Role</h1>
-      <p class="lead mx-auto" >
-       Designed and implemented UI screens in Figma and SwiftUI for a mobile event app.
-    Contributed from concept to delivery, working closely with developers and testers and
-    other designers.
-     Focused on intuitive navigation and a clean, modern look.
-    Contributed to shaping the brand’s identity by designing cohesive visual elements,
-    including icons, typography, and color schemes, aligned with the company’s values.
-      </p>
-    </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-
-
-  <!-- RESULT -->
-   <!--<div class="d-flex flex-column">-->
-  <section class=" py-3" id="results">
-    <div class="container " ;>
-      <div class="text-left mb-5">
-      <h1 class="text-uppercase text-primary mb-4 fw-bold border-bottom pb-2">Results</h1>
-      <h3 class="mt-3">Coding</h3>
-      <p class="lead mx-auto">
-        The features shown below illustrate some of the user flows currently implemented in the application. Users can interact with avatars, each with different interests, and the background dynamically changes depending on which avatar is in focus. The videos display the main flows, including event participation by swiping. This project was implemented using Swift and Xcode.
-      </p>
-    </div>
-</div>
- <div class="container my-4">
-  <div class="d-flex flex-column flex-md-row   justify-content-center align-items-center  gap-4  p-md-4 p-lg-5  gradient-bg shadow-lg rounded media-container">
-
-  
-    <div class="d-flex flex-column  flex-lg-row align-items-sm-center align-items-md-start  align-items-lg-center gap-md-2 ">
-   
-       <div class="ratio ratio-16x9 corners " style="max-width: 300px; overflow: hidden; border-radius: 50px;">
-  <video  
-  autoplay
-  muted
-  loop
-  playsinline
-  controls class="w-100 align-items-center ">
-    <source src="css/img/AZEEAATOM.mp4" type="video/MP4">
-    Your browser does not support the video tag.
-  </video>
-</div>
-
-    <div class="d-flex flex-column  p-3 text-container">
-     <h3>Main flow</h3>
-      <p>How to swipe events</p>
-
-      </div> 
-    </div> 
-
-  
-      <div class="d-flex flex-column flex-lg-row  align-items-sm-center align-items-md-start  align-items-lg-center   ">
-         
-         <div class="ratio ratio-16x9 corners" style="max-width: 300px; overflow: hidden; border-radius: 50px;">
-  <video controls 
-  autoplay
-  muted
-  loop
-  playsinline
-  class="w-100 align-items-center">
-    <source src="css/img/ATOMVIEW.mp4" type="video/MP4">
-    img
-    Your browser does not support the video tag.
-  </video>
-</div>
-   <div class="d-flex flex-column  p-3 text-container" >
-   <h3>Avatars</h3>
-       <p>   profile-site for  personal avatars.</p>
+          <div class="device-frame">
+            <div
+              id="carouselDesign"
+              class="carousel slide case-carousel"
+              data-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="media-grid">
+                    <div class="media-item">
+                      <img
+                        class="case-img"
+                        src="css/mockups/newMocup.png"
+                        alt="Premium"
+                      />
+                      <h4>Premium</h4>
+                      <p>Unlock premium content.</p>
+                    </div>
+                    <div class="media-item">
+                      <img
+                        class="case-img"
+                        src="css/mockups/oldcityexcl.png"
+                        alt="Payment"
+                      />
+                      <h4>Payment</h4>
+                      <p>Paying with point or money.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="media-grid">
+                    <div class="media-item">
+                      <img
+                        class="case-img"
+                        src="css/mockups/kayaking_main.png"
+                        alt="Premium"
+                      />
+                      <h4>Premium</h4>
+                      <p>Unlock premium content.</p>
+                    </div>
+                    <div class="media-item">
+                      <img
+                        class="case-img"
+                        src="css/mockups/kayaking_pay.png"
+                        alt="Payment"
+                      />
+                      <h4>Payment</h4>
+                      <p>Paying with point or money.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="media-grid">
+                    <div class="media-item">
+                      <img
+                        class="case-img"
+                        src="css/mockups/dealtrekk.png"
+                        alt="Deal"
+                      />
+                      <h4>Deal</h4>
+                      <p>Example of in-app product placement</p>
+                    </div>
+                    <div class="media-item">
+                      <img
+                        class="case-img"
+                        src="css/mockups/artdeal.png"
+                        alt="Art deal"
+                      />
+                      <h4>Art deal</h4>
+                      <p>Example of in-app museum deal</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-nav">
+                <a
+                  class="carousel-control-prev"
+                  href="#carouselDesign"
+                  role="button"
+                  data-slide="prev"
+                >
+                  <span
+                    class="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span
+                  ><span class="sr-only">Previous</span>
+                </a>
+                <ol class="carousel-indicators">
+                  <li
+                    data-target="#carouselDesign"
+                    data-slide-to="0"
+                    class="active"
+                  ></li>
+                  <li data-target="#carouselDesign" data-slide-to="1"></li>
+                  <li data-target="#carouselDesign" data-slide-to="2"></li>
+                </ol>
+                <a
+                  class="carousel-control-next"
+                  href="#carouselDesign"
+                  role="button"
+                  data-slide="next"
+                >
+                  <span
+                    class="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span
+                  ><span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
+    </main>
 
+    <footer class="text-center py-4 mt-5 border-top">
+      <small>© 2025 Andrea Vilselius</small>
+    </footer>
 
-    </div>
-  </div>
-    </div>
-
-  </section>
-
-   <section class=" py-3">
-    <div class="container ">
-      <div class="text-left mb-5">
- 
-      <h3 class="mt-3">Design</h3>
-      <p class="lead mx-auto">
-       Some examples of potential flows (not yet implemented) that appears when the user swipes right on an event. The user is also able to unlock exclusive  content, collect points and take advantage of deals. These frames were created with Figma. 
-      </p>
-    </div>
-</div>
-<!----  -->
-
-<!---- design karusell -->
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators mb-4">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active"> <!--start -->
-<div class="container my-4">
-  <div class="d-flex flex-column flex-md-row   justify-content-center align-items-center  gap-4 p-md-4 p-lg-5 gradient-bg shadow-lg rounded media-container">
-
-  
-    <div class="d-flex flex-column  flex-lg-row  gap-md-3 img-container align-items-sm-center align-items-md-start  align-items-lg-center">
-            <div class="ratio ratio-16x9 shrink" style="max-width: 300px;  overflow: hidden;">
-        <img src="css/mockups/newMocup.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-       <div class="d-flex  flex-column  p-3 text-container">
-     <h3>Premium</h3>
-      <p>Unlock premium content.</p>
-
-      </div> 
-
-    </div> 
-
-  
-      <div class="d-flex flex-column flex-lg-row  align-items-sm-center align-items-md-start  align-items-lg-center gap-md-2  ">
-              <div class="ratio ratio-16x9 shrink" style="max-width: 300px; overflow: hidden;">
-        <img src="css/mockups/oldcityexcl.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-      <div class="d-flex flex-column  p-3 text-container" >
-   <h3>Payment</h3>
-       <p>Paying with point or money.</p>
-      </div>
-
-    </div>
-  </div>
-    </div>
-</div> <!----  slut -->
-
-
-
-    <div class="carousel-item"> <!--- start -->
-<div class="container my-4">
-  <div class="d-flex flex-column flex-md-row   justify-content-center align-items-center  gap-4  p-md-4 p-lg-5 gradient-bg shadow-lg rounded media-container">
-
-  
-    <div class="d-flex flex-column  flex-lg-row align-items-sm-center align-items-md-start  align-items-lg-center gap-md-2">
-  
-      <div class="ratio ratio-16x9 shrink" style="max-width: 300px;  overflow: hidden;">
-        <img src="css/mockups/kayaking_main.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-
-     <div class="d-flex flex-column  p-3 text-container">
-     <h3>Premium</h3>
-      <p>Unlock premium content.</p>
-
-      </div> 
-
-    </div> 
-
-  
-      <div class="d-flex flex-column flex-lg-row  align-items-sm-center align-items-md-start  align-items-lg-center gap-md-2  ">
-    
-      <div class="ratio ratio-16x9 shrink" style="max-width: 300px; overflow: hidden;">
-        <img src="css/mockups/kayaking_pay.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-
-        <div class="d-flex flex-column  p-3 text-container" >
-   <h3>Payment</h3>
-       <p>Paying with point or money.</p>
-      </div>
-
-    </div>
-  </div>
-    </div>
-
-
-      
-    </div><!-- slut -->
-
-
-    <div class="carousel-item"><!--start -->
-
-
- <div class="container my-4">
-  <div class="d-flex flex-column flex-md-row   justify-content-center align-items-center  gap-4 p-md-4 p-lg-5 gradient-bg shadow-lg rounded media-container">
-
-    <div class="d-flex flex-column  flex-lg-row align-items-sm-center align-items-md-start  align-items-lg-center gap-md-2">
-      <div class="ratio ratio-16x9 shrink" style="max-width: 300px;  overflow: hidden;">
-        <img src="css/mockups/dealtrekk.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-       <div class="d-flex flex-column  p-3 text-container">
-     <h3>Deal</h3>
-      <p>Example of in-app product placement </p>
-      </div> 
-
-    </div> 
-
-  
-      <div class="d-flex flex-column flex-lg-row  align-items-sm-center align-items-md-start  align-items-lg-center gap-md-2  ">
-          <div class="ratio ratio-16x9 shrink" style="max-width: 300px; overflow: hidden;">
-        <img src="css/mockups/artdeal.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-    <div class="d-flex flex-column  p-3 text-container" >
-   <h3>Art deal</h3>
-      <p>Example of in-app museum deal</p>
-      </div>
-
-
-    
-    </div>
-  </div>
-    </div>
-    </div> <!--slut -->
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-</body>
-
-
-<!-- jQuery, Popper.js och Bootstrap 4 JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-
-
-
-
-
-  <footer class="text-center py-4 mt-5 border-top">
-    <small>© 2025 Andrea Vilselius</small>
-
-
-
-
-
-
-
-
-
-
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <!-- jQuery, Popper.js och Bootstrap 4 JS (bara en Bootstrap-version) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
 </html>

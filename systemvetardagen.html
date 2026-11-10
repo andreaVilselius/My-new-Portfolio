@@ -1,511 +1,588 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Case Study</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Systemvetardagen – Project Case Study</title>
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/favicon.ico" rel="icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/style.css" rel="stylesheet" />
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <style>
+      :root {
+        --brand: #32d6ba;
+        --brand-dark: #0f9c84;
+        --ink: #1f2a2e;
+        --text: #4a5559;
+        --muted: #7b868a;
+        --line: #e6ecec;
+        --tint: #eefbf8;
+      }
 
+      body {
+        padding-top: 90px;
+      } /* höjden på den fasta menyn */
+      .case {
+        color: var(--text);
+      }
+      .case-crumb a {
+        color: var(--brand-dark);
+        text-decoration: none;
+      }
+      .case-section a,
+      .case-lead a {
+        color: var(--brand-dark);
+      }
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+      /* Rubriker */
+      .case-num {
+        font-size: 0.8rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--brand-dark);
+        font-weight: 700;
+      }
+      .case-title {
+        font-size: clamp(2.25rem, 4vw, 3rem);
+        font-weight: 900;
+        line-height: 1.05;
+        hyphens: manual;
+        color: var(--ink);
+        letter-spacing: -0.02em;
+        margin: 0.5rem 0 1rem;
+      }
+      .case-h2 {
+        font-size: 2.1rem;
+        font-weight: 900;
+        color: var(--ink);
+        line-height: 1.1;
+        margin-top: 0.25rem;
+      }
+      .case-h3 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin: 2.5rem 0 0.5rem;
+      }
+      .case-lead {
+        font-size: 1.2rem;
+      }
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+      /* Bilder: ingen färgad bakgrund, ingen ram */
+      .case-img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .case-img--round {
+        border-radius: 16px;
+      }
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-  <style>
+      /* Faktarad */
+      .case-meta {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 3rem 0;
+      }
+      .case-meta > div {
+        padding: 1.25rem 1.5rem !important;
+      }
+      .case-meta dt {
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 700;
+      }
+      .case-meta dd {
+        color: var(--ink);
+        font-weight: 500;
+        margin: 0.25rem 0 0;
+      }
+      .case-tag {
+        display: inline-block;
+        background: var(--tint);
+        color: var(--brand-dark);
+        font-size: 0.8rem;
+        padding: 0.1rem 0.65rem;
+        border-radius: 999px;
+        font-weight: 500;
+        margin: 0 0.25rem 0.25rem 0;
+      }
+      @media (min-width: 992px) {
+        .case-meta > div + div {
+          border-left: 1px solid var(--line);
+        }
+      }
+      @media (max-width: 991.98px) {
+        .case-meta > div + div {
+          border-top: 1px solid var(--line);
+        }
+      }
 
-body {
-  padding-top: 50px; /* same height as your navbar */
-}
+      /* Sektioner */
+      .case-section {
+        padding: 3rem 0;
+      }
+      .case-section p {
+        font-size: 1.1rem;
+      }
+      .case-section--tint {
+        background: var(--tint);
+        border-radius: 24px;
+        padding: clamp(1.5rem, 4vw, 3rem);
+        margin: 3rem 0;
+      }
 
+      /* Karusell i ljusgrön ruta */
+      .device-frame {
+        background: var(--tint);
+        border-radius: 24px;
+        padding: clamp(1.25rem, 3vw, 2.5rem);
+        margin-top: 2rem;
+      }
+      /*.slide-row { display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: center; } -->*/
+      .slide-row {
+        display: flex;
+        align-items: center;
+      }
 
-    .hero-img {
-      width: 100%;
-      border-radius: 12px;
-      object-fit: cover;
-    }
-    .section-title {
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
+      @media (min-width: 992px) {
+        .slide-row {
+          grid-template-columns: 1fr 2.2fr;
+          gap: 3rem;
+        }
+      }
+      .slide-row h4,
+      .media-item h4 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin: 0 0 0.25rem;
+      }
+      .slide-row p,
+      .media-item p {
+        font-size: 1rem;
+        margin: 0;
+      }
 
-    .gradient-bg {
-  background: linear-gradient(
-    180deg, 
-    #ffffff 0%,   /* Soft pink */
-    #ffffff 50%,  /* Light aqua */
-    #d9d9d9 100%  /* Warm cream */
-  );
+      .media-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        justify-items: center;
+      }
+      @media (min-width: 768px) {
+        .media-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .media-item {
+        width: 100%;
+        max-width: 300px;
+      }
+      .media-item h4 {
+        margin-top: 1rem;
+      }
 
+      /* Pilar på sidorna, prickar under bilden (som på de andra sidorna) */
+      .carousel-nav {
+        margin-top: 1.25rem;
+      }
+      /* Plats för pilarna så att de inte hamnar över text eller bild */
+      @media (min-width: 768px) {
+        .case-carousel .carousel-inner {
+          padding: 0 64px;
+        }
+      }
+      .carousel-nav .carousel-control-prev,
+      .carousel-nav .carousel-control-next {
+        position: absolute;
+        top: 0;
+        bottom: 2.5rem;
+        width: 56px;
+        opacity: 1;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .carousel-nav .carousel-control-prev {
+        left: 0;
+      }
+      .carousel-nav .carousel-control-next {
+        right: 0;
+      }
+      .carousel-nav .carousel-control-prev-icon,
+      .carousel-nav .carousel-control-next-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(31, 42, 46, 0.75);
+        background-size: 45%;
+      }
+      .carousel-nav .carousel-indicators {
+        position: static;
+        margin: 0;
+        justify-content: center;
+      }
+      .carousel-nav .carousel-indicators li {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 0;
+        background: var(--brand);
+        opacity: 0.3;
+        margin: 0 4px;
+      }
+      .carousel-nav .carousel-indicators li.active {
+        opacity: 1;
+      }
+    </style>
+  </head>
 
-
-
-
-}
-
-
-
-@media (max-width:768px){
-
-
-
-.media-container {
-  min-height: 100vh;
-    display: flex;
-  justify-content: center; /* vertikal centrering */
-  align-items: center; /* horisontell centrering */
-  flex-direction: column; /* stapla vertikalt på små skärmar */
-}
-
-
-}
-
-
-/*
-
-.text-container{
-  width: 100%;
-}
-
-  .gradient-bg {
-    background: none !important;
-  }
-
-  .shadow-lg {
-    box-shadow: none !important;
-  }
-
-  .rounded {
-    border-radius: 0 !important;
-  }
-
-  .media-container {
-    padding: 0 !important;
-    background: none !important;
-    box-shadow: none !important;
-  }
-
-
-}*/
-
-
-@media (min-width: 768px) and (max-width: 1200px) {
-.shrink{
-   flex-shrink: 0
-}
-
-
-
-
-}
-
-
-
-
-  </style>
-</head>
-
-<body data-spy="scroll" data-target=".navbar" data-offset="51">
-    <!-- Navbar Start -->
-    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5 mb-5">
-        <a href="index.html" class="navbar-brand ml-lg-3">
-            <h1 class="m-0 display-5"><span class="text-primary">Port</span>Folio</h1>
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
-            <div class="navbar-nav m-auto py-0">
-             <a href="index.html#portfolio" class="nav-item nav-link active">Projects</a>
-
-                <a href="#header" class="nav-item nav-link active">Header</a>
-                <a href="#concept" class="nav-item nav-link">Concept</a>
-                <a href="#myRole" class="nav-item nav-link">My Role</a>
-                <a href="#results" class="nav-item nav-link">Results</a>
-             <!----   <a href="#service" class="nav-item nav-link">Service</a>
-                <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
-                <a href="#testimonial" class="nav-item nav-link">Review</a>
-                <a href="#blog" class="nav-item nav-link">Blog</a> -->
-            
-            </div>
-          <a href="index.html#contact" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
+  <body data-spy="scroll" data-target=".navbar" data-offset="91">
+    <!-- Navbar -->
+    <nav
+      class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5"
+    >
+      <a href="index.html" class="navbar-brand ml-lg-3">
+        <h1 class="m-0 display-5">
+          <span class="text-primary">Port</span>Folio
+        </h1>
+      </a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
+        <div class="navbar-nav m-auto py-0">
+          <a href="index.html#portfolio" class="nav-item nav-link">Projects</a>
+          <a href="#header" class="nav-item nav-link active">Header</a>
+          <a href="#concept" class="nav-item nav-link">Concept</a>
+          <a href="#myRole" class="nav-item nav-link">My Role</a>
+          <a href="#results" class="nav-item nav-link">Results</a>
         </div>
+        <a
+          href="index.html#contact"
+          class="btn btn-outline-primary d-none d-lg-block"
+          >Hire Me</a
+        >
+      </div>
     </nav>
 
-  <!-- HERO SECTION -->
-
-  <section class="container  pt-5 " id="header">
-  <div class="d-flex flex-column align-items-start">  
-  <div class="d-flex align-items-center justify-content-center mb-3 ">
-   <h1 class="display-2 text-uppercase text-white opacity-50 " style="-webkit-text-stroke: 2px  #c6c9cb;;">    Systemvetar<br class="d-md-none">dagen</h1>
-
-  <!-- <h1 class="position-absolute text-uppercase text-secondary" style="font-size:2em ;">Systemvetardagen</h1>-->
-</div>
-
-  <div class="d-flex flex-column flex-md-row  justify-content-center ">
-        <div class="col-md-4 ">
-        <p class="lead">In 2022 I worked in the design team for Systemvetardagen. The task was to design a website and a mobile application for the anual fair at Stockholm University. My role was to iteratively design two different prototypes using figma.</p>
-        <p><strong>Role:</strong> Webbdesigner </p>
-        <p><strong>Tools:</strong> Figma</p>
-        </div>
-           <div class="col-md-8"> 
-        <img src="css/mockups/Apple Set.png" alt="Project overview" class="hero-img" >
-       </div> 
-
-
-  </div>
-</div>
-  </section>
-
-
-  <!-- OVERVIEW -->
-  <section class="bg-light" id="concept">
-    <div class="container">
-     <h1 class="text-uppercase text-primary mb-4  fw-bold border-bottom pb-2">Concept</h1>
-         <h3 class="text-uppercase text-secondary mb-2">Design Process</h3>
-       <p class="lead  mb-3">
-        The brandguidlines seen below illustrate some of the rules I had to take into account when designing. I attempted to produce design that both aligned with the guidelines while adding my own touch to the project. 
-        It resulted in a responsive  website that presents information about the fair in a clean yet playful way. My co-designer and I iterated through several prototypes before finalizing the last versions.
+    <main class="case">
+      <div class="container">
+        <p class="case-crumb small mb-4">
+          <a href="index.html#portfolio">← All projects</a> / Systemvetardagen
         </p>
-         <img src="css/img/guidelines-systemvetardagen.png" alt="azeeaimg" class="w-100 h-100 shadow-lg" style="object-fit: cover;  ">
 
+        <!-- HERO -->
+        <section id="header" class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <h1 class="case-title">Systemvetar&shy;dagen</h1>
+            <p class="case-lead">
+              In 2022 I worked in the design team for Systemvetardagen. The task
+              was to design a website and a mobile application for the anual
+              fair at Stockholm University. My role was to iteratively design
+              two different prototypes using figma.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <img
+              class="case-img"
+              src="css/mockups/Apple Set.png"
+              alt="Project overview"
+            />
+          </div>
+        </section>
+
+        <!-- FAKTARAD -->
+        <dl class="case-meta row no-gutters">
+          <div class="col-lg-4">
+            <dt>Role</dt>
+            <dd>Webbdesigner</dd>
+          </div>
+          <div class="col-lg-4">
+            <dt>Period</dt>
+            <dd>Sep 2022-March 2023</dd>
+          </div>
+          <div class="col-lg-4">
+            <dt>Tools</dt>
+            <dd><span class="case-tag">Figma</span></dd>
+          </div>
+        </dl>
+
+        <!-- 01 CONCEPT -->
+        <section id="concept" class="case-section">
+          <div class="case-num">01</div>
+          <h2 class="case-h2 mb-3">Concept</h2>
+          <h3 class="case-h3 mt-4">Design Process</h3>
+          <p class="case-lead">
+            The brandguidlines seen below illustrate some of the rules I had to
+            take into account when designing. I attempted to produce design that
+            both aligned with the guidelines while adding my own touch to the
+            project. It resulted in a responsive website that presents
+            information about the fair in a clean yet playful way. My
+            co-designer and I iterated through several prototypes before
+            finalizing the last versions.
+          </p>
+          <img
+            class="case-img mt-4"
+            src="css/img/guidelines-systemvetardagen.png"
+            alt="Brand guidelines for Systemvetardagen"
+          />
+        </section>
+
+        <!-- 02 MY ROLE -->
+        <section id="myRole" class="case-section case-section--tint">
+          <div class="case-num">02</div>
+          <h2 class="case-h2 mb-3">My Role</h2>
+          <p class="mb-0">
+            Designed two prototypes for the landing page of Systemvetardagen —
+            the annual fair held at Stockholm University. Iterated on multiple
+            prototypes before deciding on the final version. Created a design
+            that aligned with the brand guidelines.
+          </p>
+        </section>
+
+        <!-- 03 RESULTS -->
+        <section id="results" class="case-section">
+          <div class="case-num">03</div>
+          <h2 class="case-h2 mb-3">Results</h2>
+          <p class="case-lead">
+            Two Figma prototypes — one for mobile and one for desktop.
+          </p>
+
+          <!-- Desktop-karusell -->
+          <div class="device-frame">
+            <div
+              id="carouselDesktop"
+              class="carousel slide case-carousel"
+              data-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="slide-row">
+                    <img
+                      class="case-img case-img--round"
+                      src="css/mockups/landing-2.png"
+                      alt="Header"
+                    />
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="slide-row">
+                    <img
+                      class="case-img case-img--round"
+                      src="css/mockups/sponsors.png"
+                      alt="Sponsors"
+                    />
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="slide-row">
+                    <img
+                      class="case-img case-img--round"
+                      src="css/mockups/snartStor.png"
+                      alt="Information"
+                    />
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="slide-row">
+                    <img
+                      class="case-img case-img--round"
+                      src="css/mockups/info1.png"
+                      alt="Information"
+                    />
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="slide-row">
+                    <img
+                      class="case-img case-img--round"
+                      src="css/mockups/faq.png"
+                      alt="FAQ"
+                    />
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="slide-row">
+                    <img
+                      class="case-img case-img--round"
+                      src="css/mockups/kontaktstor.png"
+                      alt="Contact us"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-nav">
+                <a
+                  class="carousel-control-prev"
+                  href="#carouselDesktop"
+                  role="button"
+                  data-slide="prev"
+                >
+                  <span
+                    class="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span
+                  ><span class="sr-only">Previous</span>
+                </a>
+                <ol class="carousel-indicators">
+                  <li
+                    data-target="#carouselDesktop"
+                    data-slide-to="0"
+                    class="active"
+                  ></li>
+                  <li data-target="#carouselDesktop" data-slide-to="1"></li>
+                  <li data-target="#carouselDesktop" data-slide-to="2"></li>
+                  <li data-target="#carouselDesktop" data-slide-to="3"></li>
+                  <li data-target="#carouselDesktop" data-slide-to="4"></li>
+                  <li data-target="#carouselDesktop" data-slide-to="5"></li>
+                </ol>
+                <a
+                  class="carousel-control-next"
+                  href="#carouselDesktop"
+                  role="button"
+                  data-slide="next"
+                >
+                  <span
+                    class="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span
+                  ><span class="sr-only">Next</span>
+                </a>
+              </div>
             </div>
-  </section>
+          </div>
 
-
- -<section class="bg-light py-5" id="myRole">
-    <div class="container" >
-   <div class="text-left ">
-
-    <h1 class="text-uppercase text-primary  fw-bold border-bottom pb-2">My Role</h1>
-      <p class="lead mx-auto" >
-Designed two prototypes for the landing page of Systemvetardagen — the annual fair held at Stockholm University.
-Iterated on multiple prototypes before deciding on the final version.
-Created a design that aligned with the brand guidelines.
-
-      </p>
-    </div>
-    </div>
-  </section>
-
-    <div class="container " id="results">
-      <div class="text-left mb-5">
-       <h1 class="text-uppercase text-primary  fw-bold border-bottom pb-2">Results</h1>
-    <!----  <h3 class="mt-3">Coding</h3> -->
-      <p class="lead mx-auto">
-        Two Figma prototypes — one for mobile and one for desktop. 
-      </p>
-    </div>
-</div>
-
-
-
-  <!-- carousel big screens  -->
-
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators mb-4">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-     <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active"> <!--start -->
-
-<div class="container my-4">
-  <div class="d-flex flex-column flex-lg-row  justify-content-center align-items-center  p-5  gradient-bg shadow-lg rounded ">
-
-          <div class="d-flex flex-column  text-container">
-        <h3>Header</h3>
-      <p> clear and responsive header was designed for both layouts.</p>
+          <!-- Mobil-karusell -->
+          <div class="device-frame" style="margin-top: 3rem">
+            <div
+              id="carouselMobile"
+              class="carousel slide case-carousel"
+              data-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="media-grid">
+                    <div class="media-item">
+                      <img
+                        class="case-img"
+                        src="css/mockups/start-2.png"
+                        alt="Header"
+                      />
+                    </div>
+                    <div class="media-item">
+                      <img
+                        class="case-img"
+                        src="css/mockups/companies.png"
+                        alt="Sponsors"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="media-grid">
+                    <div class="media-item">
+                      <img
+                        class="case-img"
+                        src="css/mockups/vanligafrågor.png"
+                        alt="FAQ"
+                      />
+                    </div>
+                    <div class="media-item">
+                      <img
+                        class="case-img"
+                        src="css/mockups/snart.png"
+                        alt="Info"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="media-grid">
+                    <div class="media-item">
+                      <img
+                        class="case-img"
+                        src="css/mockups/info.png"
+                        alt="Info"
+                      />
+                    </div>
+                    <div class="media-item">
+                      <img
+                        class="case-img"
+                        src="css/mockups/contact.png"
+                        alt="Contact us"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-nav">
+                <a
+                  class="carousel-control-prev"
+                  href="#carouselMobile"
+                  role="button"
+                  data-slide="prev"
+                >
+                  <span
+                    class="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span
+                  ><span class="sr-only">Previous</span>
+                </a>
+                <ol class="carousel-indicators">
+                  <li
+                    data-target="#carouselMobile"
+                    data-slide-to="0"
+                    class="active"
+                  ></li>
+                  <li data-target="#carouselMobile" data-slide-to="1"></li>
+                  <li data-target="#carouselMobile" data-slide-to="2"></li>
+                </ol>
+                <a
+                  class="carousel-control-next"
+                  href="#carouselMobile"
+                  role="button"
+                  data-slide="next"
+                >
+                  <span
+                    class="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span
+                  ><span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-      <div class="ratio ratio-16x9" style=" border-radius: 50px; overflow: hidden;">
-        <img src="css/mockups/landing-2.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-  </div>
-</div>
-
-</div> <!----  slut -->
-    <div class="carousel-item"> <!--- start -->
-
-<div class="container my-4">
-  <div class="d-flex flex-column flex-lg-row  justify-content-center align-items-center  p-5  gradient-bg shadow-lg rounded ">
-
-          <div class="d-flex flex-column  text-container">
-      <h3>Sponsors</h3>
-      <p>All sponsor logos are neatly presented below the header.</p>
-      </div>
-      <div class="ratio ratio-16x9" style=" border-radius: 50px; overflow: hidden;">
-        <img src="css/mockups/sponsors.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-  </div>
-</div>
-<!---->
-      
-    </div><!-- slut -->
-
-
-    <div class="carousel-item"><!--start -->
-
-
-     
-<div class="container my-4">
-  <div class="d-flex flex-column flex-lg-row  justify-content-center align-items-center  p-5  gradient-bg shadow-lg rounded ">
-
-          <div class="d-flex flex-column   text-container ">
-     <h3>Information</h3>
-      <p>Some initial information about the fair. </p>
-      </div>
-      <div class="ratio ratio-16x9" style=" border-radius: 50px; overflow: hidden;">
-        <img src="css/mockups/snartStor.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-  </div>
-</div>
-
-    </div> <!--slut -->
-
-
-        <div class="carousel-item"><!--start -->
-
-<div class="container my-4">
-  <div class="d-flex flex-column flex-lg-row text-center justify-content-center align-items-center  p-5  gradient-bg shadow-lg rounded">
-
-          <div class="d-flex flex-column   text-container">
-     <h3>Information</h3>
-   <p>Learn more about what to expect before and during the fair. </p>
-      </div>
-      <div class="ratio ratio-16x9" style=" border-radius: 50px; overflow: hidden;">
-        <img src="css/mockups/info1.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-  </div>
-</div> 
-
-
-
-    </div> <!--slut -->
-
-
-  <div class="carousel-item"><!--start -->
-    
-     
-<div class="container my-4">
-  <div class="d-flex flex-column flex-lg-row text-center justify-content-center align-items-center  p-5  gradient-bg shadow-lg rounded ">
-
-          <div class="d-flex flex-column   text-container ">
-         <h3>FAQ</h3>
-      <p>Frequently asked questions for visitors and participants.</p>
-      </div>
-      <div class="ratio ratio-16x9" style=" border-radius: 50px; overflow: hidden;">
-        <img src="css/mockups/faq.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-  </div>
-</div>
-</div> <!--slut -->
-
-
-
-        <div class="carousel-item"><!--start -->
-          <div class="container my-4">
-  <div class="d-flex flex-column flex-lg-row  justify-content-center align-items-center  p-5  gradient-bg shadow-lg rounded ">
-
-          <div class="d-flex flex-column   text-container ">
- <h3>Contact us </h3>
-      <p>Includes a contact form and essential contact information.</p>
-      </div>
-      <div class="ratio ratio-16x9" style=" border-radius: 50px; overflow: hidden;">
-        <img src="css/mockups/kontaktstor.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-  </div>
-</div>
-
-    </div> <!--slut -->
-
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-
-  <section class=" py-3">
-
-
-
-<!---- mobile karusell -->
-<div id="carouselMobile" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators mb-4">
-    <li data-target="#carouselMobile" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselMobile" data-slide-to="1"></li>
-    <li data-target="#carouselMobile" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active"> <!--start -->
-<div class="container my-4">
-  <div class="d-flex flex-column flex-md-row   justify-content-center align-items-center  gap-4  p-md-4 p-lg-5 gradient-bg shadow-lg rounded media-container">
-
-  
-    <div class="d-flex flex-column  flex-lg-row align-items-center align-items-md-start  align-items-lg-center gap-md-2">
-  
-   <div class="ratio ratio-16x9 flex-shrink-0" style="width: 300px; overflow: hidden;">
-
-        <img src="css/mockups/start-2.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-
-     <div class="d-flex flex-column  p-3 text-container">
-<h3>Header                </h3>
-<p>A clear and responsive header section, adaptive to all screens.      </p>
-
-      </div>
-    </div>   
-      <div class="d-flex flex-column flex-lg-row  align-items-center align-items-md-start  align-items-lg-center gap-md-2  ">  
-   <div class="ratio ratio-16x9 flex-shrink-0" style="width: 300px; overflow: hidden;">
-
-        <img src="css/mockups/companies.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-       <div class="d-flex flex-column  p-3 text-container" >
-<h3>Sponsors              </h3>
-<p>Sponsors & Exhibitors showcasing brands across the entire fair.      </p>
-      </div>
-
-    </div>
-  </div>
-    </div>
-</div> <!----  slut -->
-
-
-
-
-
-
-    <div class="carousel-item"> <!--- start -->
-      <div class="container my-4">
-  <div class="d-flex flex-column flex-md-row   justify-content-center align-items-center  gap-4  p-md-4 p-lg-5 gradient-bg shadow-lg rounded media-container">
-
-  
-    <div class="d-flex flex-column  flex-lg-row align-items-center align-items-md-start  align-items-lg-center gap-md-2">
-  
-        <div class="ratio ratio-16x9 flex-shrink-0" style="width: 300px; overflow: hidden;">
-        <img src="css/mockups/vanligafrågor.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-
-     <div class="d-flex flex-column  p-3 text-container">
-<h3>FAQ                   </h3>
-<p>Common questions answered for visitors and event participants.       </p>
-
-      </div>
-    </div>   
-      <div class="d-flex flex-column flex-lg-row  align-items-center align-items-md-start  align-items-lg-center gap-md-2  ">  
-        <div class="ratio ratio-16x9 flex-shrink-0" style="width: 300px; overflow: hidden;">
-        <img src="css/mockups/snart.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-       <div class="d-flex flex-column  p-3 text-container" >
-<h3>Info                  </h3>
-<p>Initial fair details for all visitors attending the upcoming event.  </p>
-
-      </div>
-
-    </div>
-  </div>
-    </div>
-
-      
-    </div><!-- slut -->
-
-
-  <div class="carousel-item"><!--start -->
-
-      <div class="container my-4">
-  <div class="d-flex flex-column flex-md-row   justify-content-center align-items-center  gap-4  p-md-4 p-lg-5 gradient-bg shadow-lg rounded media-container">
-
-  
-    <div class="d-flex flex-column  flex-lg-row align-items-center align-items-md-start  align-items-lg-center gap-md-2">
-  
-      <div class="ratio ratio-16x9 flex-shrink-0" style="width: 300px; overflow: hidden;">
-        <img src="css/mockups/info.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-
-     <div class="d-flex flex-column  p-3 text-container">
-
-<h3>Info                  </h3>
-<p>Overview of what to expect before and during the whole fair.         </p>
-
-      </div>
-    </div>   
-      <div class="d-flex flex-column flex-lg-row  align-items-center align-items-md-start  align-items-lg-center gap-md-2  ">  
-        <div class="ratio ratio-16x9 flex-shrink-0" style="width: 300px; overflow: hidden;">
-        <img src="css/mockups/contact.png" alt="azeeaimg" class="w-100 h-100" style="object-fit: cover;">
-      </div>
-       <div class="d-flex flex-column  p-3 text-container" >
-<h3>Contact us            </h3>
-<p>Form and details to reach the fair organizers and main contacts.     </p>
-      </div>
-
-    </div>
-  </div>
-    </div>
-
-    </div> <!--slut -->
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-</body>
-
-
-<!-- jQuery, Popper.js och Bootstrap 4 JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-  <footer class="text-center py-4 mt-5 border-top">
-    <small>© 2025 Andrea Vilselius</small>
-
-
-
-
-
-
-
-
-
-
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    </main>
+
+    <footer class="text-center py-4 mt-5 border-top">
+      <small>© 2026 Andrea Vilselius</small>
+    </footer>
+
+    <!-- jQuery, Popper.js och Bootstrap 4 JS (bara en Bootstrap-version) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
 </html>
