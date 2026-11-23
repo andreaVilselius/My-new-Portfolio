@@ -120,6 +120,24 @@ body {
   text-align: center;
 }
 
+/* Två skärmdumpar i samma ruta */
+.project-shot--pair .shot-item + .shot-item { margin-top: 1.5rem; }
+@media (min-width: 992px) {
+  .project-shot--pair .shot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .project-shot--pair .shot-item + .shot-item { margin-top: 0; }
+}
+.shot-label {
+  font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--brand-dark); font-weight: 700; margin-bottom: .5rem;
+}
+
+/* Avdelare mellan projekt */
+.project + .project {
+  border-top: 1px solid var(--line);
+  margin-top: 4rem;
+  padding-top: 4rem;
+}
+
 .project-points > div {
   border-top: 2px solid var(--brand);
   padding-top: 1rem;
@@ -224,51 +242,12 @@ body {
         <dd> 2 developers + me</dd>
       </div>
     </dl>
-<!----<div class="case-visual-bg row justify-content-center align-items-center">
-  
-    <section id="concept" class="case-section col g-4 py-5">
-      <div class="col-lg-3">
-        <div class="case-num">01</div>
-        <h2 class="case-h2 mt-1">Concept</h2>
-      </div>
 
-      <div class="col-lg-9">
-      
-        <p>Text om designprocessen …</p>
-      </div>
-    </section>
-
- 
-    <section id="my-role" class="case-section col g-4 py-5">
-      <div class="">
-        <div class="case-num">02</div>
-        <h2 class="case-h2 mt-1">My Role</h2>
-      </div>
-      <div class="col-lg-9">
-      
-        <p>Text …</p>
-      </div>
-    </section>
-
-  
-    <section id="results" class="case-section col g-4 py-5">
-      <div class="col-lg-3">
-        <div class="case-num">03</div>
-        <h2 class="case-h2 mt-1">Results</h2>
-      </div>
-      <div class="col-lg-9">
-      
-        <p>The results are being presented below in a chronological order.</p>
-      </div>
-    </section>
-</div> -->
 
 
 <section id="projects" class="case-section py-5">
 
-  <!-- Sektionsrubrik, samma stil som Concept -->
-
-
+  <!-- ============ PROJEKT 1: Birthday notifications ============ -->
   <article class="project">
 
     <!-- Intro -->
@@ -324,17 +303,74 @@ body {
     </div>
 
   </article>
+
+  <!-- ============ PROJEKT 2: 404- och felsida ============ -->
+  <article class="project" id="error-pages">
+
+    <!-- Intro -->
+    <div class="project-intro mb-4">
+      <div class="case-eyebrow">November · 2026</div>
+      <h3 class="case-h2 mt-2 mb-3">Redesigned 404 &amp; error pages</h3>
+      <p class="mb-3">
+        I redesigned the two pages users land on when something goes wrong: the 404 page
+        for links that don't exist, and the error page shown when a page fails to load.
+        Instead of a dead end, both now speak Wndy's language and give one clear way forward.
+      </p>
+      <div>
+        <span class="case-tag">UX/UI</span>
+        <span class="case-tag">Frontend</span>
+        <span class="case-tag">Illustration</span>
+        <span class="case-tag">Microcopy</span>
+      </div>
+    </div>
+
+    <!-- Två skärmdumpar -->
+    <figure class="project-shot project-shot--pair mb-5">
+      <div class="shot-grid">
+        <div class="shot-item">
+          <div class="shot-label">404 · Page not found</div>
+          <img src="css/img/wndy/404-page.png"
+               alt="Wndy 404 page: 'Den här sidan finns inte på kartan.' with an illustrated character holding a map, surrounded by trees, and a 'Till startsidan' button">
+        </div>
+        <div class="shot-item">
+          <div class="shot-label">Error · Page failed to load</div>
+          <img src="css/img/wndy/error-page.png"
+               alt="Wndy error page inside the app: 'Något gick fel på vägen.' with a character peeking over a map, and a 'Försök igen' button">
+        </div>
+      </div>
+      <figcaption>Left: the 404 page for broken or misspelled links. Right: the in-app error page when a page can't be loaded.</figcaption>
+    </figure>
+
+    <!-- Problem / Solution / Result -->
+    <div class="row g-4 project-points">
+      <div class="col-md-4">
+        <div class="case-num">Problem</div>
+        <p>
+          When a link was broken or a page failed to load, users hit a generic page
+          that didn't feel like Wndy and didn't explain what had happened or what to do next.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <div class="case-num">Solution</div>
+        <ul class="case-list">
+          <li>A shared "lost on the map" concept with a 3D character, map and landscape in Wndy's colors.</li>
+          <li>Two separate messages: the page doesn't exist (404) vs. something went wrong on the way (error).</li>
+          <li>Short, friendly microcopy and one clear action: <em>Till startsidan</em> or <em>Försök igen</em>.</li>
+          <li>The error page keeps the sidebar visible, so the user never loses their place in the app.</li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <div class="case-num">Result</div>
+        <p>
+          Two on-brand pages that turn a frustrating moment into a friendly one,
+          and always give the user a way back.
+        </p>
+      </div>
+    </div>
+
+  </article>
 </section>
   </div>
-
-
-  
-
-
-
-
-
-
 
 </main>
 
@@ -348,29 +384,8 @@ body {
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
   <footer class="text-center py-4 mt-5 border-top">
     <small>© 2025 Andrea Vilselius</small>
-
-
-
-
-
-
-
-
-
-
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
